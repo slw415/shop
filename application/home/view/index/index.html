@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=""/>
+	<meta name="google" content="nositelinkssearchbox"/>
+	<meta name="google-site-verification" content="BRIrL18qELSCSHu-BNlO7z9T0qAjBuunDmK8hLNTBI8" />
+	<meta name="baidu-site-verification" content="px8yGWK5e5" />
+	<meta name="msvalidate.01" content="" />
+	<meta property="qc:admins" content="" />
+	<meta name="360-site-verification" content="" />
+	<meta name="shenma-site-verification" content="" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="/static/home/css/index.css">
+	<link rel="stylesheet" type="text/css" href="/static/home/Plug/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+</head>
+<body>
+	<div class="content">
+
+		<!-- 头部编辑 -->
+		<div class="header">
+			<!-- 导航编辑 -->
+			<div class="nav">
+				<div class="row">
+ 					<div class="col-xs-12 col-md-5 col-md-offset-2">
+ 						<div class="top_l">
+							<span class="home"><a href="index.html">Home</a></span>
+							<span class="my"><a href="Contact_us.html">Contact Us</a></span>
+						</div>
+ 					</div>
+  					<div class="col-xs-6 col-md-4">
+  						<div class="top_r">
+							<button type="button" class="btn btn-success"><a href="land.html">Sign In</a></button>
+							<button type="button" class="btn btn-danger"><a href="Register.html">register</a></button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- 轮播图编辑 -->
+			<div class="baner">
+				<div id="myCarousel" class="carousel slide">                  <!--设置轮播器区域样式，设置轮播器滚动样式-->
+   					<ol class="carousel-indicators">                                <!--		设置轮播器列表区域样式，就是小圆点区域样式-->
+       				 	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>    <!--设置当前列表首选-->
+        				<li data-target="#myCarousel" data-slide-to="1"></li>
+       				 	<li data-target="#myCarousel" data-slide-to="2"></li>
+       				 	<li data-target="#myCarousel" data-slide-to="3"></li>
+    				</ol>
+    			<div class="carousel-inner">                                    <!--设置轮播器图片区域-->
+			        <div class="item active tp1">                                <!--设置轮播器图片样式-->
+			            <a href="#"><img src="/static/home/image/baner.png" alt="第一张"></a>
+			        </div>
+			        <div class="item tp2">
+			            <a href="#"><img src="/static/home/image/baner.png" alt="第二张"></a>
+			        </div>
+			        <div class="item tp3">
+			            <a href="#"><img src="/static/home/image/baner.png" alt="第三张"></a>
+			        </div>
+			         <div class="item tp4">
+			            <a href="#"><img src="/static/home/image/baner.png" alt="第四张"></a>
+			        </div>
+   				 </div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- 搜索栏编辑 -->
+		<div class="Search">
+			<div class="col-lg-11">
+				<div class="input-group">
+					<input type="text" class="form-control">
+					<span class="input-group-btn">
+						 	<a href="#" class="btn btn-info btn-lg">
+          						<span class="glyphicon glyphicon-search"></span>
+          				 		Search
+        					</a>
+					</span>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 商品列表 -->
+		<div class="commodity" id="app">
+	  			<div class="shangpin" >
+			    	<div class="thumbnail" v-for="value in commodity">
+			      			<a href="detail.html"><img v-bind:src="value.image"></a>
+			      			<div class="caption">
+			        			<h4>{{value.name}}</h4>
+			       					<p >
+				       			 		<span class="Present"><span class="Rmb">￥</span>{{value.Present}}</span>
+				       			 		<span class="Price"><span class="Rmb">￥</span>{{value.Price}}</span>
+				       			 		<span class="stock">{{value.stock}}</span>
+		       			 			</p>
+			    			</div>
+			    	</div>
+		 		</div>
+		</div>
+
+		<div class="footer">
+			<p>E-mail:123456789@163.com</p>
+		</div>		
+						
+		
+	</div>
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<script src="/static/home/Plug/jquery-1.11.1.min.js"></script>
+<script src="/static/home/Plug/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/home/Js/index.js"></script>
+
+
+<script>
+    $(".slideTxtBox .hd ul li").mouseenter(function(){
+        var i=$(this).index();
+        $(".slideTxtBox .bd ul").eq(i).css({"display":"block"}).siblings().css({"display":"none"})
+    });
+</script>
+</body>
+</html>
