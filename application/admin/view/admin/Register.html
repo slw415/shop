@@ -45,41 +45,39 @@
   					</div>
   				</div>
   				<div class="col-md-6">
-  					<form class="form">
+  					<form class="form" name="addForm" id="addform" method="post"action="{:url('admin/Admin/register_form')}">
   						<h3>Register</h3>
   						<div class="register">
   			
    							 <div class="div-bor">
 								<i class="icon-useron"></i>
 								<!-- <input type="text" class="user" placeholder="E-mail"  id="userEmail" onBlur="checkEmail()" oninput="checkEmail()"/> -->
-								<input type="text" id="userEmail" class="user" onBlur="checkEmail()" oninput="checkEmail()" placeholder="E-mail"/> 
+								<input type="text" id="userEmail" class="user" onBlur="checkEmail()" oninput="checkEmail()" placeholder="E-mail" name="email"/>
 								<span class="default" id="emailErr"></span> 
 
 							</div>
 							<div class="div-bor">
 								<i class="icon-usertw"></i>
 							<!-- 	<input type="text" class="user" placeholder="Phone"/> -->
-							<input type="text" id="userPhone" class="user" onBlur="checkPhone()" oninput="checkPhone()" placeholder="Phone"> 
+							<input type="text" id="userPhone" class="user" onBlur="checkPhone()" oninput="checkPhone()" placeholder="Phone" name="phone">
 							 <span class="default" id="phoneErr"></span> 
 
 							</div>
 							<div class="div-bor">
 								<i class="icon-userth"></i>
-								<input type="text" class="user" placeholder="PayPal"/>
+								<input type="text" class="user" placeholder="PayPal"name="paypal"/>
 
 							</div>
 							<div class="div-bor">
 								<i class="icon-userfo"></i>
 							<!-- 	<input type="text" class="user" placeholder="Password"/> -->
-								<input type="password" id="userPasword" class="user" onBlur="checkPassword()" oninput="checkPassword()" placeholder="Password"> 
+								<input type="password" id="userPasword" class="user" onBlur="checkPassword()" oninput="checkPassword()" placeholder="Password"name="password">
       							<span class="default" id="passwordErr"></span> 
 
 							</div>
 
-
   						 </div>
-  						<button type="button" class="btn btn-success"><a href="landsuccess.html">Register</a></button>
-
+  						<button type="submit" class="btn btn-success"><a href="#">Register</a></button>
   					</form>
   					
   				</div>
@@ -87,11 +85,27 @@
 		</div>
 
 
-<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
-<script src="Plug/jquery-1.11.1.min.js"></script>
-<script src="Plug/bootstrap.min.js"></script>
-<script type="text/javascript" src="Js/index.js"></script>
-<script type="text/javascript"> 
+<script type="text/javascript">
+    $("form[name=addForm]").submit(function(){  //ok
+        var formData  = new FormData($('#addform')[0]);
+        $.ajax({
+            url:" {:url('admin/Admin/register_form')}",
+            type:"post",
+            data:formData,
+            dataType: 'json', //返回的数据类型
+            processData:false,// 告诉jQuery不要去处理发送的数据
+            contentType:false,// 告诉jQuery不要去设置Content-Type请求头
+            success:function(data)//ajax执行后的回调函数
+            {
+                if (data.status =='0') {
+
+                } else {
+
+                }
+            }
+        });
+        return false;//阻止表单提交
+    });
  function checkForm(){ 
   var nametip = checkUserName(); 
   var passtip = checkPassword();  
