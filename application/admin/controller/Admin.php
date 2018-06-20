@@ -32,7 +32,7 @@ class Admin
         $phone = $_POST['phone'];
         $paypal = $_POST['paypal'];
         $password = $_POST['password'];
-        $user = Admin::where('email',$email)->find();
+        $user = \app\admin\model\Admin::where('email',$email)->find();
         if ($user)
         {
             $data['status'] = '1';
@@ -84,6 +84,6 @@ class Admin
                 }
             }
         }
-        return json_decode($data);
+        return json($data);
     }
 }

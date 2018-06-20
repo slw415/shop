@@ -5,5 +5,5 @@ use think\Model;
 
 class Admin extends Model
 {
-
+    protected $table ='shop_admin';
 }
