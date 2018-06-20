@@ -3,12 +3,12 @@ namespace app\admin\controller;
 
 use think\Request;
 use think\Validate;
-
-class Admin
+use think\Controller;
+class Admin extends controller
 {
     public function index()
     {
-        return view('admin/land');
+        return view('land');
     }
     //显示注册页面
     public function register()
@@ -84,5 +84,22 @@ class Admin
             }
         }
         return json($data);
+    }
+
+    //登录验证
+    public function land_form()
+    {
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $user = \app\admin\model\Admin::where('email',$email)->find();
+        if ($user['password']==$password)
+        {
+            \think\Session::set('email',$user['email']);
+            $data['status'] = '0';
+            $data['msg'] = '跳转首页';
+        }else{
+            $data['status'] = '1';
+            $data['msg'] = '密码错误';
+        }
     }
 }
