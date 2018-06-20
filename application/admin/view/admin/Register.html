@@ -1,22 +1,133 @@
 {extend name="public/base" /}
 {block name="title"}Register{/block}
 {block name="content"}
-  	<style type="text/css">
-  		.error{ 
-  		    height:32px; 
-  		    line-height:24px; 
-  		    color:#F00; 
-  		 }
-  	    .success{
-  	    	height:32px; 
-  		    line-height:54px; 
-  		    color:#096; 
-  	    }
-            .top_r a{
-    color: #fff;
+  	 <style type="text/css">
+    .content{
+      max-width: 1290px;
+    }
+    a{
+      color: #fff;
+      display: block;
+    }
+    a:hover{
+      text-decoration: none;
+    }
+    .nav{
+      background: #eeeeee;
+      margin: 0 auto;
+      padding: 5px;
+    }
+    .row {
+        margin-right: -15px;
+        margin-left: -15px;
+        margin-top: 16px;
+        margin-bottom: 7px;
+    }
+    .my{margin-left: 14%;}
+    .home{
+      width: 80%;
+    }
+    .top_r {
+        float: left;
+        margin-bottom: 2%;
+        font-size: 24px;
+        width: 120%;
+    }
+    .top_l {
+        font-size: 21pt;
+        text-align: center;
+        margin-left:35%;
+        width: 75%;
+        border-left: 1px solid #BBBBBB;
+        border-right: 1px solid #BBBBBB;
+    }
+        
+    .top_r button {
+        margin-right: 3%;
+        font-size: 15pt;
+    }
+    
+    .land {
+        background-image: url(image/denglubj.png);
+        background-repeat: no-repeat;
+        background-size: 118%;
 
+        height: 770px;
+    }
+    .introduction {
+        margin: 29px 0;
+        withd: 40%^;
+        width:73%;
+        margin-left: 6%;
+    }
+    .introduction img{
+      width: 100%;
+      
 
-  	</style>
+    }
+    .form {
+        padding: 1%;
+        margin-top: 12%;
+        width: 56%;
+        margin-left: 32%;
+        background: #fff;
+        border-radius: 3%;
+    }
+    .div-bor {
+        position: relative;
+        width: 90%;
+        border-bottom: 1px solid #dddddd;
+        padding:6%;
+        font-size: 15pt;
+    }
+    .register {
+        width: 94%;
+        border: 1px solid #666;
+    }
+    .userfo {
+        position: absolute;
+        left: 0；z-index:5;
+        background-size: 100%;
+        font-size: 24pt;
+        margin-left: -8%;
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        width: 29px;
+        height: 38px;
+    }
+    .icon-useron{
+      
+        /*background-image: url(image/icon5.png);*/
+        margin-top: 2px;
+
+    }
+    .icon-userfo {
+        /*background-image: url(../image/icon5.png);*/
+        margin-top: -7px;
+    }
+    h4 {
+        font-size: 24px;
+        margin: 40px;
+    }
+    .form button {
+        font-size: 24pt;
+        width: 75%;
+        /* margin: 14% 0; */
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    
+    .footer {
+        font-size: 24px;
+        background: #5E5E5E;
+        color: #DDDDDD;
+        text-align: center;
+        padding: 26px;
+        overflow: hidden;
+        clear: both;
+        width: 100%;
+    }
+  </style>
 {block name="content"}
 		<!-- 头部编辑 -->
 		<div class="header">
@@ -68,7 +179,7 @@
 							</div>
 							<div class="div-bor">
 								<i class="icon-userth"></i>
-								<input type="text" class="user" placeholder="PayPal"name="paypal"/>
+								<input type="text" class="user" required placeholder="PayPal"name="paypal"/>
 
 							</div>
 							<div class="div-bor">
