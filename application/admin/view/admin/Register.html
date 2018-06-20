@@ -1,0 +1,189 @@
+{extend name="public/base" /}
+{block name="title"}Register{/block}
+{block name="content"}
+  	<style type="text/css">
+  		.error{ 
+  		    height:32px; 
+  		    line-height:24px; 
+  		    color:#F00; 
+  		 }
+  	    .success{
+  	    	height:32px; 
+  		    line-height:54px; 
+  		    color:#096; 
+  	    }
+
+  	</style>
+{block name="content"}
+		<!-- 头部编辑 -->
+		<div class="header">
+			<!-- 导航编辑 -->
+						<div class="nav">
+				<div class="row">
+ 					<div class="col-xs-12 col-md-6 col-md-offset-2">
+ 						<div class="top_l">
+						</div>
+ 					</div>
+  					<div class="col-xs-6 col-md-4">
+  						<div class="top_r">
+							<button type="button" class="btn btn-success"><a href="land.html">Sign In</a></button>
+							<button type="button" class="btn btn-danger"><a href="Register.html">register</a></button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+		<div class="land">
+			<div class="row">
+  				<div class="col-md-6">
+  					<div class="introduction">
+  						<img src="/static/home/image/land.png">
+  					</div>
+  				</div>
+  				<div class="col-md-6">
+  					<form class="form">
+  						<h3>Register</h3>
+  						<div class="register">
+  			
+   							 <div class="div-bor">
+								<i class="icon-useron"></i>
+								<!-- <input type="text" class="user" placeholder="E-mail"  id="userEmail" onBlur="checkEmail()" oninput="checkEmail()"/> -->
+								<input type="text" id="userEmail" class="user" onBlur="checkEmail()" oninput="checkEmail()" placeholder="E-mail"/> 
+								<span class="default" id="emailErr"></span> 
+
+							</div>
+							<div class="div-bor">
+								<i class="icon-usertw"></i>
+							<!-- 	<input type="text" class="user" placeholder="Phone"/> -->
+							<input type="text" id="userPhone" class="user" onBlur="checkPhone()" oninput="checkPhone()" placeholder="Phone"> 
+							 <span class="default" id="phoneErr"></span> 
+
+							</div>
+							<div class="div-bor">
+								<i class="icon-userth"></i>
+								<input type="text" class="user" placeholder="PayPal"/>
+
+							</div>
+							<div class="div-bor">
+								<i class="icon-userfo"></i>
+							<!-- 	<input type="text" class="user" placeholder="Password"/> -->
+								<input type="password" id="userPasword" class="user" onBlur="checkPassword()" oninput="checkPassword()" placeholder="Password"> 
+      							<span class="default" id="passwordErr"></span> 
+
+							</div>
+
+
+  						 </div>
+  						<button type="button" class="btn btn-success"><a href="landsuccess.html">Register</a></button>
+
+  					</form>
+  					
+  				</div>
+			</div>
+		</div>
+
+
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<script src="Plug/jquery-1.11.1.min.js"></script>
+<script src="Plug/bootstrap.min.js"></script>
+<script type="text/javascript" src="Js/index.js"></script>
+<script type="text/javascript"> 
+ function checkForm(){ 
+  var nametip = checkUserName(); 
+  var passtip = checkPassword();  
+  var conpasstip = ConfirmPassword(); 
+  var phonetip = checkPhone(); 
+  var emailtip =checkEmail();
+  return nametip && passtip && conpasstip && phonetip && emailtip; 
+  } 
+  //验证用户名   
+  function checkUserName(){ 
+  var username = document.getElementById('userName'); 
+  var errname = document.getElementById('nameErr'); 
+  var pattern = /^\w{3,}$/;  //用户名格式正则表达式：用户名要至少三位 
+  if(username.value.length == 0){ 
+    errname.innerHTML="用户名不能为空"
+    errname.className="error"
+    return false; 
+    } 
+  if(!pattern.test(username.value)){ 
+    errname.innerHTML="用户名不合规范"
+    errname.className="error"
+    return false; 
+    } 
+   else{ 
+     errname.innerHTML="输入正确"
+     errname.className="success"; 
+     return true; 
+     } 
+  } 
+  //验证密码   
+function checkPassword(){ 
+  var userpasswd = document.getElementById('userPasword'); 
+  var errPasswd = document.getElementById('passwordErr'); 
+  var pattern = /^\w{4,8}$/; //密码要在4-8位 
+  if(!pattern.test(userpasswd.value)){ 
+    errPasswd.innerHTML="请输入4~8位密码"
+    errPasswd.className="error"
+    return false; 
+    } 
+   else{ 
+     errPasswd.innerHTML="密码设置成功"
+     errPasswd.className="success"; 
+     return true; 
+     } 
+  } 
+  // //确认密码 
+  function ConfirmPassword(){ 
+  var userpasswd = document.getElementById('userPasword'); 
+  var userConPassword = document.getElementById('userConfirmPasword'); 
+  var errConPasswd = document.getElementById('conPasswordErr'); 
+  if((userpasswd.value)!=(userConPassword.value) || userConPassword.value.length == 0){ 
+    errConPasswd.innerHTML="上下密码不一致"
+    errConPasswd.className="error"
+    return false; 
+    } 
+   else{ 
+     errConPasswd.innerHTML="OK"
+     errConPasswd.className="success"; 
+     return true; 
+     }    
+  } 
+//验证手机号 
+  function checkPhone(){ 
+  var userphone = document.getElementById('userPhone'); 
+  var phonrErr = document.getElementById('phoneErr'); 
+  var pattern = /^1[34578]\d{9}$/; //验证手机号正则表达式 
+  if(!pattern.test(userphone.value)){ 
+    phonrErr.innerHTML="手机号码不合规范"
+    phonrErr.className="error"
+    return false; 
+    } 
+   else{ 
+     phonrErr.innerHTML="手机号输入成功"
+     phonrErr.className="success"; 
+     return true; 
+     } 
+  } 
+  // 验证邮箱
+  function checkEmail(){ 
+  var userEmail = document.getElementById('userEmail'); 
+  var emailErr = document.getElementById('emailErr'); 
+  var pattern = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+  if(!pattern.test(userEmail.value)){ 
+  	emailErr.innerHTML="邮箱地址不合规范"
+    emailErr.className="error"
+    return false; 
+    } 
+   else{ 
+     emailErr.innerHTML="邮箱设置正确"
+     emailErr.className="success"; 
+     return true; 
+     } 
+  } 
+</script>
+	{/block}
