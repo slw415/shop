@@ -1,7 +1,7 @@
 {extend name="public/base" /}
 {block name="title"}Sign in{/block}
-{block name="content"}
-	<style type="text/css">
+{block name="css"}
+<style type="text/css">
 		.content{
 			max-width: 1290px;
 		}
@@ -92,9 +92,17 @@
 		}
 		.icon-useron{
 			
-    		/*background-image: url(image/icon5.png);*/
-    		margin-top: 2px;
-
+    	    position: absolute;
+		    left: 0;
+		    z-index: 5;
+		    background-size: 100%;
+		    font-size: 24pt;
+		    margin-left: 0%;
+		    background-repeat: no-repeat;
+		    background-position: 0px 0px;
+		    width: 35px;
+		    height: 54px;
+		}
 		}
 		.icon-userfo {
 		    /*background-image: url(../image/icon5.png);*/
@@ -123,6 +131,10 @@
 		    width: 100%;
 		}
 	</style>
+
+{/block}
+{block name="content"}
+	
 <!-- 头部编辑 -->
 <div class="header">
 	<!-- 导航编辑 -->
