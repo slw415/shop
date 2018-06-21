@@ -1,0 +1,155 @@
+<{extend name="public/base" /}
+{block name="title"}shopping{/block}
+{block name="content"}
+	<div id="app">
+	<div class="content">
+		<div class="web">
+			<div class="header">
+				<div class="nav">
+					<div class="row">
+							<div class="col-xs-12 col-md-6 col-md-offset-2">
+	 						<div class="top_l">
+								<span class="home"><a href="">首页</a></span>
+								<span class="my"><a href="">联系我们</a></span>
+							</div>
+	 					</div>
+					</div>
+					<div class="col-xs-6 col-md-4">
+	  					<div class="top_r">
+							<button type="button" class="btn btn-success"><a href="land.html">登录</a></button>
+								
+						</div>
+					</div>
+				</div>
+		
+			</div>
+	
+			<div class="commodity" style="background: #F4F4F4;">
+				<div class="shangpin" >
+					  <div class="row">
+					  	 <div class="left">
+					  	 	<div class="col-xs-12 col-md-4 ">
+			      				<img src="image/detail.png">
+			      			</div>
+					  	 </div>
+					  	 <div class="right" v-for="site in sites">
+					  	 	<div class="col-xs-12 col-md-7">
+					  	 		<div class="name">
+			      					<span>
+			      						{{site.name}}
+			      					</span>
+			      				</div>
+			      				<div class="price">
+			      					 <span class="Original_price">
+			      						￥{{site.price}}
+			      					</span>
+			      					<span class="Present_price">
+			      						<span class="Rmb">￥</span>{{site.Present}}
+			      					</span>
+			      				</div>
+			      				<div class="Rebate">
+			      					<div class="Symbol">%</div>
+			      					<div class="rebate">
+			      						<p class="color">￥200.00</p>
+			      						<p>100%Rebate</p>
+			      					</div>
+			      					<div class="stock">
+			      						in stock:{{site.stock}}
+			      					</div>
+			      				</div>
+			      				<div class="buy">
+			      					<a href="">
+			      						购买
+			      					</a>
+			      				</div>
+			      				<div class="Explain">
+			      					<p>{{site.Explain}}</p>
+			      				</div>
+					  	 	</div>
+					  	</div>
+						</div>
+				</div>
+				<div class="product_Details">
+		 			Product Details
+		 		</div>
+		 		<div class="meng" style="background: #fff;">	
+		 			<img src="image/men.png">
+		 		</div>
+			</div>
+			<!-- <div class="footer">
+				<p>联系电话：{{ContactNumber}}</p>
+				<p>邮箱：{{Email}}</p>
+			</div> -->
+		</div>
+	<!-- </div> -->
+		<div class="Backstage">
+			<div class="edit">
+				<div class="edit_header">
+					<span class="Edit">编辑底部</span>
+					<span>点击进入管理</span>
+				</div>
+				<div class="background">
+					<div class="introduction">
+						<div class="introductiones"><span>商品名称: <input type="text" name=""  ></span></div>
+	  					<div class="introductiones"><span>商品价格: <input type="text" name=""></span></div>
+	  					<div class="introductiones"><span>商品原价： <input type="text" name="原价"></span></div>
+	  					<div class="Inventory"><span>库存：<input type="number" name=""></span></div>
+	  					<div class="Explains"><span>说明： <input type="text" name=""></span></div>
+					</div>
+				</div>
+				<div class="background">
+					<div class="introduction">
+						<div class="title">
+							<h5>商品轮播图</h5>
+							<img src="image/commodity.png">
+						</div>
+						<div class="tupianxinzeng">
+	  						<button>十</button>
+	  					</div>
+					</div>
+				</div>
+				<div class="background">
+					<div class="introduction">
+						<div class="title">
+							<h5>商品详情页</h5>
+							<img src="image/men.png">
+						</div>
+							<div class="tupianxinzeng">
+	  						<button>十</button>
+	  					</div>
+					</div>
+				</div>
+			<!-- 	<div class="edit" style="float: left; border: 2px solid #ccc;padding: 2% 4%;border-radius: 4%;text-align: center;">
+					<p>邮箱 :<input type="" name="" v-model="Email" style="border: none;"></p>
+					<p style="margin-left:40px;">联系电话 ：<input type="" name="" v-model="ContactNumber" style="border: none;"></p>
+				</div> -->
+				<div class="submit">
+					<button type="submit" onclick="submit()">提交</button>
+				</div>
+			</div>
+		</div>
+
+</div>
+	
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Runoob!',
+    ContactNumber:'188 8888 8888',
+    Email:'123456789@163.com',
+     sites: [
+      { 
+      	name: '绅士 大罐混合坚果 963g',
+      	price:'200',
+      	Present:'0.00',
+      	stock:'500',
+      	Explain:'说明：说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容。'
+      }
+      
+    ]
+  }
+  }
+)
+</script>
+{/block}
