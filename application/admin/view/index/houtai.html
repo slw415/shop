@@ -2,13 +2,201 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>商品编辑</title>
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
 <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/static/home/css/Commodity_details.css">
 <link rel="stylesheet" type="text/css" href="/static/home/Plug/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/static/home/Plug/public.css">
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script type="text/javascript" src="/static/home/Plug/jquery-1.11.1.min.js"></script>>
+<script type="text/javascript" src="/static/home/Plug/jquery-1.11.1.min.js"></script>
+	<!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<style type="text/css">
+.content {
+   
+    text-align: center;
+    background: #fff;
+    max-width: 1200px;
+    overflow: hidden;
+}
+.web {
+    width: 57%;
+    float: left;
+    margin-left: -120px;
+}
+.top_r {
+    float: left;
+    margin-bottom: 2%;
+    font-size: 24px;
+    width: 100%;
+    margin-top: -30px;
+    margin-left: 400px;
+}.top_l {
+    font-size: 12pt;
+    text-align: center;
+    margin-left: 15%;
+    width: 100%;
+    margin-top: 2.5%;
+    border-left: 1px solid #BBBBBB;
+    border-right: 1px solid #BBBBBB;
+}
+.home {
+    padding-right: 18%;
+}
+.my{
+	margin-left: 11%
+}
+.Backstage {
+    width: 58%;
+    float: right;
+    margin-right: -94px;
+}
+	.left img{
+		width: 150%;
+		margin-top: 3px;
+		margin-left: -20px;
+	}
+	.left{
+		width: 100%;
+
+	}
+/*	.right{
+		margin-left:20px;
+	}*/
+	.name {
+    font-size: 12pt;
+    margin-top: 2%;
+	}
+	.Rebate {
+    width: 259pt;
+    height: 35pt;
+    border: 1px solid #ddd;
+	}
+	.Symbol {
+    background: #77E4FF;
+    font-size: 24pt;
+    width: 15%;
+    color: #fff;
+    float: left;
+	}
+	.rebate {
+    font-size: 13pt;
+    width: 40%;
+    float: left;
+	}
+	.stock {
+    font-size: 14pt;
+    border-left: 2px solid #ccc;
+    margin-top: 3.5%;
+    width: 44%;
+    float: left;
+    overflow: hidden;
+	}
+	.Original_price {
+    font-size: 13pt;
+    color: #f45b6d;
+    text-decoration: line-through;
+	}
+	.Present_price .Rmb {
+    font-size: 16pt;
+	}
+	.Present_price {
+    font-size: 16pt;
+    color: #009944;
+	}
+	.buy {
+    margin-top: 5%;
+    width: 347px;
+    height: 61px;
+    font-size: 16pt;
+    color: #fff;
+    text-align: center;
+    background: #f86c6b;
+	}
+	.buy a {
+    color: #fff;
+    width: 319px;
+    height: 90px;
+    line-height: 52pt;
+    display: block;
+}
+	.Explain{
+		font-size: 14px;
+	}
+	.Explains {
+    width: 77%;
+    float: left;
+    margin-top: 2%;
+    margin-left: -13%;
+}
+.title {
+    margin-left: -1%;
+    width: 30%;
+    float: left;
+    /* margin-left: 8px; */
+    margin-top: 0px;
+}
+.tupianxinzeng button {
+    background: #fff;
+    border: none;
+    outline: none;
+    font-size: 24pt;
+    color: #ccc;
+    margin-top: 30px;
+    margin-left: 26px;
+}
+.tupianxinzeng {
+    width: 20%;
+    margin-left: 140px;
+    border: 2px dashed #ccc;
+    height: 115px;
+    margin-top: 16px;
+}
+.submit button {
+    margin-top: 60px;
+    background: #fff;
+    width: 15%;
+    outline: none;
+    height: 30px;
+    color: #6BDDFA;
+    font-size: 12pt;
+    border: 1px solid #6BDDFA;
+}
+.avatar-uploader .el-upload {
+	border: 1px dashed #d9d9d9;
+	border-radius: 6px;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.upload {
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+	line-height: 120px;
+	background:none;
+	position: relative;
+	text-align: center;
+	border:2px dashed #ccc;
+	font-size: 50px;
+	color: #ccc;
+}
+.upload> input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+</style>
 </head>
 <body>
 <div id="app">
@@ -25,8 +213,8 @@
 	 					</div>
 					</div>
 					<div class="col-xs-6 col-md-4">
-	  					<div class="top_r" style="margin-top:-23px;margin-left: 510px;">
-							<button type="button" class="btn btn-success"><a href="land.html">登录</a></button>
+	  					<div class="top_r">
+							<button type="button" class="btn btn-success"><a href="../admin/land.html">登录</a></button>
 								
 						</div>
 					</div>
@@ -38,8 +226,8 @@
 				<div class="shangpin" >
 					  <div class="row">
 					  	 <div class="left">
-					  	 	<div class="col-xs-12 col-md-5 ">
-			      				<img src="/static/home/image/detail.png" style="width: 256pt;height: 280pt; margin-left: -12%">
+					  	 	<div class="col-xs-12 col-md-4 ">
+			      				<img src="/static/home/image/detail.png">
 			      			</div>
 					  	 </div>
 					  	 <div class="right" v-for="site in sites">
@@ -86,10 +274,10 @@
 		 			<img src="/static/home/image/men.png">
 		 		</div>
 			</div>
-			<div class="footer">
+			<!-- <div class="footer">
 				<p>联系电话：{{ContactNumber}}</p>
 				<p>邮箱：{{Email}}</p>
-			</div>
+			</div> -->
 		</div>
 	<!-- </div> -->
 		<div class="Backstage">
@@ -113,26 +301,30 @@
 							<h5>商品轮播图</h5>
 							<img src="/static/home/image/commodity.png">
 						</div>
-						<div class="tupianxinzeng">
-	  						<button>十</button>
-	  					</div>
+
+							<div class="upload">
+								+
+								<input type="file" id="fileinp"name="img"class="file">
+							</div>
 					</div>
 				</div>
+				<img id="previewImage" width="100" height="100" style="visibility:hidden">
 				<div class="background">
 					<div class="introduction">
 						<div class="title">
 							<h5>商品详情页</h5>
 							<img src="/static/home/image/men.png">
 						</div>
-							<div class="tupianxinzeng">
-	  						<button>十</button>
-	  					</div>
+						<div class="upload">
+							+
+							<input type="file">
+						</div>
 					</div>
 				</div>
-				<div class="edit" style="float: left; border: 2px solid #ccc;padding: 2% 4%;border-radius: 4%;text-align: center;">
+			<!-- 	<div class="edit" style="float: left; border: 2px solid #ccc;padding: 2% 4%;border-radius: 4%;text-align: center;">
 					<p>邮箱 :<input type="" name="" v-model="Email" style="border: none;"></p>
 					<p style="margin-left:40px;">联系电话 ：<input type="" name="" v-model="ContactNumber" style="border: none;"></p>
-				</div>
+				</div> -->
 				<div class="submit">
 					<button type="submit" onclick="submit()">提交</button>
 				</div>
@@ -140,8 +332,34 @@
 		</div>
 
 </div>
-	
+
+</div>
+
 <script>
+    //显示图片
+	$(function () {
+        document.getElementById('fileinp').onchange = function (evt) {
+            // 如果浏览器不支持FileReader，则不处理
+            if (!window.FileReader) return;
+            var files = evt.target.files;
+            for (var i = 0, f; f = files[i]; i++) {
+                //不是图片不处理
+                if (!f.type.match('image.*')) {
+
+                    continue;
+                }
+                var reader = new FileReader();
+                reader.onload = (function (theFile) {
+                    return function (e) {
+                        document.getElementById('previewImage').src = e.target.result;
+                        $('#previewImage').css('visibility','visible');
+                    };
+                })(f);
+                reader.readAsDataURL(f);
+            }
+        }
+    })
+
 new Vue({
   el: '#app',
   data: {
