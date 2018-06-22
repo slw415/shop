@@ -108,6 +108,18 @@
         /*background-image: url(../image/icon5.png);*/
         margin-top: -7px;
     }
+    .icon-user, .icon-useron, .icon-usertw, .icon-userth, .icon-userfo {
+    position: absolute;
+    left: 0;
+    z-index: 5;
+    background-size: 100%;
+    font-size: 24pt;
+    margin-left: 0%;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    width: 35px;
+    height: 54px;
+}
     h4 {
         font-size: 24px;
         margin: 45px;
@@ -170,26 +182,26 @@
    							 <div class="div-bor">
 								<i class="icon-useron"></i>
 								<!-- <input type="text" class="user" placeholder="E-mail"  id="userEmail" onBlur="checkEmail()" oninput="checkEmail()"/> -->
-								<input type="text" id="userEmail" class="user" onBlur="checkEmail()" oninput="checkEmail()" placeholder="E-mail" name="email"required/>
+								<input type="text" id="userEmail" class="user" onBlur="checkEmail()" oninput="checkEmail()" placeholder="E-mail" name="email"/>
 								<span class="default" id="emailErr"></span> 
 
 							</div>
 							<div class="div-bor">
 								<i class="icon-usertw"></i>
 							<!-- 	<input type="text" class="user" placeholder="Phone"/> -->
-							<input type="text" id="userPhone" class="user" onBlur="checkPhone()" oninput="checkPhone()" placeholder="Phone" name="phone"required>
+							<input type="text" id="userPhone" class="user" onBlur="checkPhone()" oninput="checkPhone()" placeholder="Phone" name="phone">
 							 <span class="default" id="phoneErr"></span> 
 
 							</div>
 							<div class="div-bor">
 								<i class="icon-userth"></i>
-								<input type="text" class="user" required placeholder="PayPal"name="paypal"/>
+								<input type="text" class="user"  placeholder="PayPal"name="paypal"/>
 
 							</div>
 							<div class="div-bor">
 								<i class="icon-userfo"></i>
 							<!-- 	<input type="text" class="user" placeholder="Password"/> -->
-								<input type="password" id="userPasword" class="user" onBlur="checkPassword()" oninput="checkPassword()" placeholder="Password" required name="password">
+								<input type="password" id="userPasword" class="user" onBlur="checkPassword()" oninput="checkPassword()" placeholder="Password"  name="password"require>
       							<span class="default" id="passwordErr"></span> 
 
 							</div>
@@ -201,7 +213,12 @@
   				</div>
 			</div>
 		</div>
+<!-- Large modal -->
 
+
+<!-- Small modal -->
+
+</div>
 
 <script type="text/javascript">
     $("form[name=addForm]").submit(function(){  //ok
@@ -216,9 +233,12 @@
             success:function(data)//ajax执行后的回调函数
             {
                 if (data.status =='0') {
+                  layer.msg(data.msg, {icon: 6, time: 1500} ,function(){
+                                    window.location.href="http://www.shop.com/index.php/admin/Admin/index";  
+                 });
 
                 } else {
-
+                     layer.msg(data.msg, {icon: 5, time: 1500});
                 }
             }
         });

@@ -165,31 +165,102 @@
 			</div>
 		</div>
 		<div class="col-md-6">
-			<form class="form">
+			<form class="form" name="addForm" id="addform" method="post"action="{:url('admin/Admin/land_form')}">
 				<h3>Sign in</h3>
 				<div class="register">
 
 					<div class="div-bor">
 						<i class="icon-useron"></i>
-						<input type="text" class="user" placeholder="E-mail"/>
+						<input type="text" class="user" name="email"placeholder="email"/>
 
 					</div>
 
 
 					<div class="div-bor">
 						<i class="icon-userfo"></i>
-						<input type="text" class="user" placeholder="Password"/>
+						<input type="text" class="user" name="password" placeholder="Password"/>
 
 					</div>
 
 				</div>
-				<button type="button" class="btn btn-success"><a href="landsuccess.html">Sign in</a></button>
+				<button type="submit" class="btn btn-success">Sign in</button>
 
 			</form>
 
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+    $("form[name=addForm]").submit(function(){  //ok
+        var formData  = new FormData($('#addform')[0]);
+        $.ajax({
+            url:" {:url('admin/Admin/land_form')}",
+            type:"post",
+            data:formData,
+            dataType: 'json', //返回的数据类型
+            processData:false,// 告诉jQuery不要去处理发送的数据
+            contentType:false,// 告诉jQuery不要去设置Content-Type请求头
+            success:function(data)//ajax执行后的回调函数
+            {
+                if (data.status =='0') {
+                  layer.msg(data.msg, {icon: 6, time: 1500} ,function(){
+                                    window.location.href="http://www.shop.com/index.php/Admin/Index/index";  
+                 });
+
+                } else {
+                     layer.msg(data.msg, {icon: 5, time: 1500});
+                }
+            }
+        });
+        return false;//阻止表单提交
+    });
+ function checkForm(){ 
+  var nametip = checkUserName(); 
+  var passtip = checkPassword();  
+  var conpasstip = ConfirmPassword(); 
+  var phonetip = checkPhone(); 
+  var emailtip =checkEmail();
+  return nametip && passtip && conpasstip && phonetip && emailtip; 
+  } 
+  //验证用户名   
+  function checkUserName(){ 
+  var username = document.getElementById('userName'); 
+  var errname = document.getElementById('nameErr'); 
+  var pattern = /^\w{3,}$/;  //用户名格式正则表达式：用户名要至少三位 
+  if(username.value.length == 0){ 
+    errname.innerHTML="用户名不能为空"
+    errname.className="error"
+    return false; 
+    } 
+  if(!pattern.test(username.value)){ 
+    errname.innerHTML="用户名不合规范"
+    errname.className="error"
+    return false; 
+    } 
+   else{ 
+     errname.innerHTML="输入正确"
+     errname.className="success"; 
+     return true; 
+     } 
+  } 
+ 
+  // 验证邮箱
+  function checkEmail(){ 
+  var userEmail = document.getElementById('userEmail'); 
+  var emailErr = document.getElementById('emailErr'); 
+  var pattern = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+  if(!pattern.test(userEmail.value)){ 
+  	emailErr.innerHTML="邮箱地址不合规范"
+    emailErr.className="error"
+    return false; 
+    } 
+   else{ 
+     emailErr.innerHTML="邮箱设置正确"
+     emailErr.className="success"; 
+     return true; 
+     } 
+  } 
+</script>
 {/block}
 
 

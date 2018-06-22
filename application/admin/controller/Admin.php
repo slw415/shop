@@ -89,6 +89,7 @@ class Admin extends controller
     //登录验证
     public function land_form()
     {
+
         $password = $_POST['password'];
         $email = $_POST['email'];
         $user = \app\admin\model\Admin::where('email',$email)->find();
@@ -101,5 +102,7 @@ class Admin extends controller
             $data['status'] = '1';
             $data['msg'] = '密码错误';
         }
+         return json($data);
     }
+   
 }
