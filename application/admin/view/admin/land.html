@@ -2,135 +2,147 @@
 {block name="title"}Sign in{/block}
 {block name="css"}
 <style type="text/css">
-		.content{
-			max-width: 1290px;
-		}
-		a{
-			color: #fff;
-			display: block;
-		}
-		a:hover{
-			text-decoration: none;
-		}
-		.nav{
-			background: #eeeeee;
-			margin: 0 auto;
-			padding: 5px;
-		}
-		.row {
-		    margin-right: -15px;
-		    margin-left: -15px;
-		    margin-top: 16px;
-		    margin-bottom: 7px;
-		}
-		.top_r {
-		    float: left;
-		    margin-bottom: 2%;
-		    font-size: 24px;
-		    width: 120%;
-		}
-		.top_l {
-		    font-size: 21pt;
-		    text-align: center;
-		    margin-left:30%;
-		    border-left: 1px solid #BBBBBB;
-		    border-right: 1px solid #BBBBBB;
-		}
-				
-		.top_r button {
-		    margin-right: 3%;
-		    font-size: 15pt;
-		}
-		
-		.land {
-		    background-image: url(/static/home/image/denglubj.png);
-		    background-repeat: no-repeat;
-		    background-size: 118%;
+    .content{
+      max-width: 1290px;
+    }
+    a{
+      color: #fff;
+      display: block;
+    }
+    a:hover{
+      text-decoration: none;
+    }
+    .nav{
+      background: #eeeeee;
+      margin: 0 auto;
+      padding: 5px;
+    }
+    .row {
+        margin-right: -15px;
+        margin-left: -15px;
+        margin-top: 16px;
+        margin-bottom: 7px;
+    }
+    .top_r {
+        float: left;
+        margin-bottom: 2%;
+        font-size: 24px;
+        width: 120%;
+    }
+    .top_l {
+        font-size: 21pt;
+        text-align: center;
+        margin-left:30%;
+        border-left: 1px solid #BBBBBB;
+        border-right: 1px solid #BBBBBB;
+    }
+        
+    .top_r button {
+        margin-right: 3%;
+        font-size: 15pt;
+    }
+    
+    .land {
+        background-image: url(/static/home/image/denglubj.png);
+        background-repeat: no-repeat;
+        background-size: 118%;
+       overflow: hidden;
 
-		    height: 770px;
-		}
-		.introduction {
-		    margin: 29px 0;
-		    withd: 40%^;
-		    width:73%;
-		    margin-left: 6%;
-		}
-		.introduction img{
-			width: 100%;
-			
+    }
+    .introduction {
+        margin: 29px 0;
+        withd: 40%^;
+        width:73%;
+        margin-left: 6%;
+    }
+    .introduction img{
+      width: 100%;
+      
 
-		}
-		.form {
-		    padding: 1%;
-		    margin-top: 12%;
-		    width: 54%;
-		    margin-left: 36%;
-		    background: #fff;
-		    border-radius: 3%;
-		}
-		.div-bor {
-		    position: relative;
-		    width: 90%;
-		    border-bottom: 1px solid #dddddd;
-		    padding:8%;
-		    font-size: 15pt;
-		}
-		.register {
-		    width: 94%;
-		    border: 1px solid #666;
-		}
-		.userfo {
-		    position: absolute;
-		    left: 0；z-index:5;
-		    background-size: 100%;
-		    font-size: 24pt;
-		    margin-left: -8%;
-		    background-repeat: no-repeat;
-		    background-position: 0px 0px;
-		    width: 29px;
-		    height: 38px;
-		}
-		.icon-useron{
-			
-    	    position: absolute;
-		    left: 0;
-		    z-index: 5;
-		    background-size: 100%;
-		    font-size: 24pt;
-		    margin-left: 0%;
-		    background-repeat: no-repeat;
-		    background-position: 0px 0px;
-		    width: 35px;
-		    height: 54px;
-		}
-		}
-		.icon-userfo {
-		    /*background-image: url(../image/icon5.png);*/
-		    margin-top: -7px;
-		}
-		h4 {
-		    font-size: 24px;
-		    margin: 45px;
-		}
-		.form button {
-		    font-size: 24pt;
-		    width: 75%;
-		    /* margin: 14% 0; */
-		    margin-top: 60px;
-		    margin-bottom:68px;
-		}
-		
-		.footer {
-		    font-size: 24px;
-		    background: #5E5E5E;
-		    color: #DDDDDD;
-		    text-align: center;
-		    padding: 26px;
-		    overflow: hidden;
-		    clear: both;
-		    width: 100%;
-		}
-	</style>
+    }
+    .form {
+        padding: 1%;
+        margin-top: 12%;
+        width: 54%;
+        margin-left: 36%;
+        background: #fff;
+        border-radius: 3%;
+    }
+    .div-bor {
+        position: relative;
+        width: 90%;
+        border-bottom: 1px solid #dddddd;
+        padding:6%;
+        font-size: 15pt;
+    }
+    .register {
+        width: 94%;
+        border: 1px solid #666;
+    }
+    .userfo {
+        position: absolute;
+        left: 0；z-index:5;
+        background-size: 100%;
+        font-size: 24pt;
+        margin-left: -8%;
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        width: 29px;
+        height: 38px;
+    }
+    .icon-useron{
+      
+        position: absolute;
+        left: 0;
+        z-index: 5;
+        background-size: 100%;
+        font-size: 24pt;
+        margin-left: 0%;
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        width: 35px;
+        height: 54px;
+    }
+    }
+    .icon-userfo {
+        /*background-image: url(../image/icon5.png);*/
+        margin-top: -7px;
+    }
+    .icon-usertw {
+  /*  background-image: url(../image/icon2.png);*/
+    background-size: 75%;
+}
+.icon-userfo {
+    /*background-image: url(../image/icon5.png);*/
+    background-size: 80%;
+}
+.icon-useron {
+    background-size: 80%;
+  /*  background-image: url(../image/icon4.png);*/
+}
+    h4 {
+        font-size: 24px;
+        margin: 45px;
+    }
+    .form button {
+        font-size: 24pt;
+        width: 75%;
+        /* margin: 14% 0; */
+        margin-top: 60px;
+        margin-bottom:68px;
+    }
+    
+    .footer {
+        font-size: 24px;
+        background: #5E5E5E;
+        color: #DDDDDD;
+        text-align: center;
+        padding: 26px;
+        overflow: hidden;
+        clear: both;
+        width: 100%;
+    }
+  </style>
 
 {/block}
 {block name="content"}

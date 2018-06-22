@@ -1,7 +1,7 @@
 {extend name="public/base" /}
 {block name="title"}Register{/block}
    {block name='css'}   <style type="text/css">
-     <style type="text/css">
+<style type="text/css">
     .content{
       max-width: 1290px;
     }
@@ -46,8 +46,8 @@
         background-image: url(/static/home/image/denglubj.png);
         background-repeat: no-repeat;
         background-size: 118%;
+       overflow: hidden;
 
-        height: 770px;
     }
     .introduction {
         margin: 29px 0;
@@ -72,7 +72,7 @@
         position: relative;
         width: 90%;
         border-bottom: 1px solid #dddddd;
-        padding:8%;
+        padding:6%;
         font-size: 15pt;
     }
     .register {
@@ -92,7 +92,7 @@
     }
     .icon-useron{
       
-          position: absolute;
+        position: absolute;
         left: 0;
         z-index: 5;
         background-size: 100%;
@@ -108,17 +108,17 @@
         /*background-image: url(../image/icon5.png);*/
         margin-top: -7px;
     }
-    .icon-user, .icon-useron, .icon-usertw, .icon-userth, .icon-userfo {
-    position: absolute;
-    left: 0;
-    z-index: 5;
-    background-size: 100%;
-    font-size: 24pt;
-    margin-left: 0%;
-    background-repeat: no-repeat;
-    background-position: 0px 0px;
-    width: 35px;
-    height: 54px;
+    .icon-usertw {
+  /*  background-image: url(../image/icon2.png);*/
+    background-size: 75%;
+}
+.icon-userfo {
+    /*background-image: url(../image/icon5.png);*/
+    background-size: 80%;
+}
+.icon-useron {
+    background-size: 80%;
+  /*  background-image: url(../image/icon4.png);*/
 }
     h4 {
         font-size: 24px;
@@ -183,15 +183,14 @@
 								<i class="icon-useron"></i>
 								<!-- <input type="text" class="user" placeholder="E-mail"  id="userEmail" onBlur="checkEmail()" oninput="checkEmail()"/> -->
 								<input type="text" id="userEmail" class="user" onBlur="checkEmail()" oninput="checkEmail()" placeholder="E-mail" name="email"/>
-								<span class="default" id="emailErr"></span> 
+							
 
 							</div>
 							<div class="div-bor">
 								<i class="icon-usertw"></i>
 							<!-- 	<input type="text" class="user" placeholder="Phone"/> -->
 							<input type="text" id="userPhone" class="user" onBlur="checkPhone()" oninput="checkPhone()" placeholder="Phone" name="phone">
-							 <span class="default" id="phoneErr"></span> 
-
+					
 							</div>
 							<div class="div-bor">
 								<i class="icon-userth"></i>
@@ -202,7 +201,7 @@
 								<i class="icon-userfo"></i>
 							<!-- 	<input type="text" class="user" placeholder="Password"/> -->
 								<input type="password" id="userPasword" class="user" onBlur="checkPassword()" oninput="checkPassword()" placeholder="Password"  name="password"require>
-      							<span class="default" id="passwordErr"></span> 
+      						
 
 							</div>
 
