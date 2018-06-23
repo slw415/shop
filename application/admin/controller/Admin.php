@@ -21,7 +21,14 @@ class Admin extends controller
      */
     function isMobile($mobile) {
         if(preg_match("/^1[34578]\d{9}$/", $mobile)){
-            return 1;
+            return true;
+        }
+    }
+    function isEmail($email)
+    {
+        $checkmail = "/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/";//定义正则表达式
+        if(preg_match($checkmail,$email)) {
+            return true;
         }
     }
     //注册认证
@@ -32,58 +39,65 @@ class Admin extends controller
         $paypal = $_POST['paypal'];
         $password = $_POST['password'];
         $user = \app\admin\model\Admin::where('email',$email)->find();
-        if ($user)
-        {
-            $data['status'] = '1';
-            $data['msg'] ='已经存在当前用户';
-        }elseif($this ->isMobile($phone)!=1){
-            $data['status'] = '1';
-            $data['msg'] ='请输入正确的手机号格式';
-        }else
-        {
+        if (request()->isPost()) {
             $rule = [
-                'email'  => 'require|email',
-                'phone'   => 'require',
+                'email' => 'require',
+                'phone' => 'require',
                 'paypal' => 'require',
                 'password' => 'length:4,8',
             ];
             $msg = [
                 'email.require' => '邮箱必须填写',
-                'email.email'    => '邮箱格式错误',
-                'phone.require'   => '手机号必须填写',
-                'paypal.require'  => 'paypal必须填写',
-                'password.length'=> '密码长度必须在4到8位',
+                'phone.require' => '手机号必须填写',
+                'paypal.require' => 'paypal必须填写',
+                'password.length' => '密码长度必须在4到8位',
             ];
             $data = [
-                'email'  => $email,
-                'phone'   => $phone,
+                'email' => $email,
+                'phone' => $phone,
                 'paypal' => $paypal,
                 'passowrd' => $password
             ];
-            $validate = new Validate($rule,$msg);
-            $result   = $validate->check($data);
-            if(!$result){
+            $validate = new Validate($rule, $msg);
+            $result = $validate->check($data);
+            if (!$result) {
                 $data['status'] = '1';
                 $data['msg'] = $validate->getError();
-            }else{
-                $admin = \app\admin\model\Admin::create([
-                    'email'  =>  $email,
-                    'phone' =>   $phone,
-                    'paypal' => $paypal,
-                    'password'=> $password,
-                    'created_up'=>date('Y-m-d')
-                ]);
-                if (!$admin)
-                {
-                    $data['status'] = '1';
-                    $data['msg'] = '创建失败';
-                }else{
-                    $data['status'] = '0';
-                    $data['msg'] = '创建成功';
-                }
+                return json($data);
             }
+            if ($this ->isEmail($email)!= 1) {
+                $data['status'] = '1';
+                $data['msg'] ='请输入正确的邮箱格式';
+                return json($data);
+            }
+            if($this ->isMobile($phone)!=1){
+                $data['status'] = '1';
+                $data['msg'] ='请输入正确的手机号格式';
+                return json($data);
+            }
+            if ($user)
+            {
+                $data['status'] = '1';
+                $data['msg'] ='已经存在当前用户';
+                return json($data);
+            }
+            $admin = \app\admin\model\Admin::create([
+                'email'  =>  $email,
+                'phone' =>   $phone,
+                'paypal' => $paypal,
+                'password'=> md5($password),
+                'created_up'=>date('Y-m-d')
+            ]);
+            if (!$admin)
+            {
+                $data['status'] = '1';
+                $data['msg'] = '创建失败';
+            }else{
+                $data['status'] = '0';
+                $data['msg'] = '创建成功';
+            }
+            return json($data);
         }
-        return json($data);
     }
 
     //登录验证
@@ -92,16 +106,25 @@ class Admin extends controller
 
         $password = $_POST['password'];
         $email = $_POST['email'];
-        $user = \app\admin\model\Admin::where('email',$email)->find();
-        if ($user['password']==$password)
-        {
-            \think\Session::set('email',$user['email']);
-            $data['status'] = '0';
-            $data['msg'] = '跳转首页';
-        }else{
+        if (empty($email)){
             $data['status'] = '1';
-            $data['msg'] = '密码错误';
+            $data['msg'] = '请输入账号';
+        }elseif(empty($password)){
+            $data['status'] = '1';
+            $data['msg'] = '请输入密码';
+        }else{
+            $user = \app\admin\model\Admin::where('email',$email)->find();
+            if ($user['password']==md5($password))
+            {
+                \think\Session::set('email',$user['email']);
+                $data['status'] = '0';
+                $data['msg'] = '跳转首页';
+            }else{
+                $data['status'] = '1';
+                $data['msg'] = '密码错误';
+            }
         }
+
          return json($data);
     }
    
