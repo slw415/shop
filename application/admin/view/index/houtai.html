@@ -256,7 +256,7 @@
 					  <div class="row">
 					  	 <div class="left">
 					  	 	<div class="col-xs-12 col-md-4 ">
-			      				<img src="/static/home/image/detail.png" class="t5">
+			      				<img src="/static/home/image/detail.png"class="t5" >
 			      			</div>
 					  	 </div>
 					  	 <div class="right" v-for="site in sites">
@@ -393,9 +393,22 @@
                             $('.t2').text(JSON.parse(data.msg).price);
 							$('.t3').text(JSON.parse(data.msg).original_price);
 							$('.t4').text(JSON.parse(data.msg).instructions);
-                            $('.t5').attr('src',JSON.parse(data.msg).chart_img);
-                            $('.t6').attr('src',JSON.parse(data.msg).details_img);
+                          /*  $('.t5').attr('src',JSON.parse(data.msg).chart_img.substring(7));*/
+							var arr = new Array();
+							var arr2 = new Array();
+                            var arr = JSON.parse(data.msg).chart_img.split(' ');
+                            var arr2 = JSON.parse(data.msg).details_img.split(' ');
+                        for(var i=0;i<arr.length; i++)
+                        {
+                           var arr1 = arr[i].substring(7);
+                        $(".t5").after('<img style="width: 100px;height: 100px" src='+arr1+'>')
+                        }
 
+                        for(var i=0;i<arr2.length; i++)
+                        {
+                            var arr3 = arr[i].substring(7);
+                            $(".t6").after('<img style="width: 100px;height: 100px" src='+arr3+'>')
+                        }
                     } else {
                         layer.msg(data.msg, {icon: 5, time: 1500});
                     }

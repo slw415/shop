@@ -58,7 +58,9 @@ class Index extends controller
                 return json($data);
             }
             $files1 = request()->file('details_img');
+
             $files = request()->file('chart_img');
+
             if (!$files || !$files1) {
                 $data['status'] = '1';
                 $data['msg'] = '请上传图片';
