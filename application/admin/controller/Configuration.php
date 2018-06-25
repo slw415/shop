@@ -165,4 +165,12 @@ class Configuration extends controller
        }
        return json($data);
     }
+    //轮播图
+    public function banner()
+    {
+        $con = \app\admin\model\CommoditiesEdit::select();
+        $con =collection($con)->toArray();
+        return view('/banner/Home',['con'=>$con]);
+    }
+
 }
