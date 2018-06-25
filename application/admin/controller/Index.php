@@ -122,19 +122,21 @@ class Index extends controller
     public function edit_shop($id)
     {
         $shop = CommoditiesEdit::where('id',$id)->find();
-        $chart_img = $shop['chart_img'];
-        $chart_img = explode(' ',$chart_img);
+        $chart_imgs = $shop['chart_img'];
+        $chart_imgss =explode(" ",$chart_imgs);
+        $chart_img = explode(' ',$chart_imgs);
         foreach ($chart_img as &$v)
         {
           $v = substr($v,7);
         }
-        $details_img = $shop['details_img'];
-        $details_img = explode(' ',$details_img);
+        $details_imgs = $shop['details_img'];
+        $details_img = explode(' ',$details_imgs);
+        $details_imgss = explode(' ',$details_imgs);
         foreach ($details_img as &$v)
         {
             $v = substr($v,7);
         }
-        return view('index/houtai_edit',['shop' => $shop,'chart_img'=>$chart_img,'details_img'=>$details_img]);
+        return view('index/houtai_edit',['shop' => $shop,'chart_img'=>$chart_img,'details_img'=>$details_img,'details_imgss'=>$details_imgss,'chart_imgss'=>$chart_imgss]);
     }
 
         public function store_shop($id)
@@ -144,7 +146,10 @@ class Index extends controller
         $original_price = $_POST['original_price'];
         $inventory = $_POST['inventory'];
         $instructions = $_POST['instructions'];
-
+        $old = $_POST['hidden'];
+        $old = implode(" ",$old);
+        $old1 = $_POST['hidden1'];
+        $old1 = implode(" ",$old1);
         if (request()->isPost()) {
             $rule = [
                 'title' => 'require',
@@ -214,11 +219,10 @@ class Index extends controller
                     // $info = $file->move(ROOT_PATH . 'public/uploads');
                     $details[] = '/public/static/' . $info1->getSaveName();
                 }
-                $chart_img = array_replace($chart_img,$chart);
-
-                $details_img = array_replace($details_img,$details);
-                $chart_img = implode(' ',$chart_img);
-                $details_img = implode(' ',$details_img);
+                $details_img = implode(' ',$details);
+                $details_img =$details_img.' '.$old1;
+                $chart_img = implode(' ',$chart);
+                $chart_img =$chart_img.' '.$old;
                 // save方法第二个参数为更新条件
                 $info = $user->save([
                     'title' => $title,
@@ -244,8 +248,8 @@ class Index extends controller
                     // $info = $file->move(ROOT_PATH . 'public/uploads');
                     $chart[] = '/public/static/' . $info->getSaveName();
                 }
-                $chart_img = array_replace($chart_img,$chart);
-                $chart_img = implode(' ',$chart_img);
+                $chart_img = implode(' ',$chart);
+                $chart_img =$chart_img.' '.$old;
                 $info = $user->save([
                     'title' => $title,
                     'price' => $price,
@@ -270,8 +274,8 @@ class Index extends controller
                     // $info = $file->move(ROOT_PATH . 'public/uploads');
                     $details[] = '/public/static/' . $info1->getSaveName();
                 }
-                $details_img = array_replace($details_img,$details);
-                $details_img = implode(' ',$details_img);
+                $details_img = implode(' ',$details);
+                $details_img =$details_img.' '.$old1;
                 $info = $user->save([
                     'title' => $title,
                     'price' => $price,

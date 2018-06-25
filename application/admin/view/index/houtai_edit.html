@@ -376,8 +376,11 @@
 								<img src="{$vo}"class="lunbo"/>
 							{/volist}
 						</div>
-
+						{volist name="chart_imgss" id="vo"}
+						<input type="hidden" value="{$vo}"name="hidden[]" class="hiddens">
+						{/volist}
 						<div class="img_file">
+
 							<div class="upload" style="opacity:0;">
 								+
 								<input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',0)"  class="file">
@@ -405,7 +408,11 @@
 							<img src="{$vo}" class="xiangqing"/>
 							{/volist}
 						</div>
+
                         <div class="img_file imgfile1">
+							{volist name="details_imgss" id="vo"}
+							<input type="hidden" value="{$vo}"name="hidden1[]" class="hiddens1">
+							{/volist}
                             <div class="upload" style="opacity:0;">
                                 +
                                 <input multiple="multiple" type="file" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','example',0)"  class="file1">
@@ -419,7 +426,6 @@
                             <div class="upload" style="opacity: 0">
                                 +
                                 <input multiple="multiple" type="file" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','example',2)"class="file1">
-
                             </div>
                         </div>
 					</div>
@@ -528,6 +534,7 @@
                 var ndiv=document.createElement("span");
                 $("."+classname).css('display','none');
                 $('.lunbo').eq($i).attr('src',e.target.result);
+                $('.hiddens').eq($i).remove();
                 if($('.lunbo').length<3 && $('.upload').eq($i).css('opacity')==1){
                     console.log($('.lunbo img').length)
                     ndiv.innerHTML=imgstr;
@@ -542,14 +549,7 @@
 
     }
     function xmTanUploadImg1(obj,idname,classname,$i) {
-        var img_index =  $("#imgboxid1").find("img").length;
-        if(img_index>=3){
-            $('.img_file').find(".upload").css('opacity','0')
-            // $(".img_file").find(".upload").eq($i+1).css('opacity','1');
-        }else {
-            $('.img_file1').find(".upload").css('opacity','0')
-            $(".img_file1").find(".upload").eq(img_index).css('opacity','1');
-        }
+
         var fl=obj.files.length;
         for(var i=0;i<fl;i++){
             var file=obj.files[i];
@@ -568,7 +568,7 @@
                     layer.msg('图片最多上传3张', {icon: 5, time: 1500})
                     return false;
                 }
-                ;
+                $('.hiddens1').eq($i).remove();
                 if ($('.xiangqing').length < 3 && $('.upload1').eq($i).css('opacity') == 1) {
                     ndiv.innerHTML = imgstr;
                     ndiv.className = "img-div";
