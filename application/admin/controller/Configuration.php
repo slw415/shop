@@ -127,5 +127,42 @@ class Configuration extends controller
         }
         return json($data);
     }
+    //脚步
+    public function footer()
+    {
+        $footer = \app\admin\model\Configuration::find();
+        return view('/footer/footer_deit',['footer'=>$footer]);
+    }
+    public function footer_store()
+    {
+       $email = $_POST['email'];
+       $number = $_POST['number'];
+       $admin = new Admin();
+       if(!$email){
+           $data['status'] = '1';
+           $data['msg'] = '请输入邮箱';
+      }elseif (!$number)
+       {
+           $data['status'] = '1';
+           $data['msg'] = '请输入电话号';
+       }elseif ($admin->isEmail($email)!=1){
+           $data['status'] = '1';
+           $data['msg'] ='请输入正确的邮箱格式';
+       }elseif($admin->isMobile($number)!=1)
+       {
+           $data['status'] = '1';
+           $data['msg'] ='请输入正确的手机号格式';
+       }else{
+           $info = new \app\admin\model\Configuration();
+           $info = $info->save([
+               'email' => $email,
+               'number' => $number
+           ], ['id' => 1]);
+               $footer = \app\admin\model\Configuration::find();
+               $data['status'] = '0';
+               $data['msg'] = $footer;
 
+       }
+       return json($data);
+    }
 }

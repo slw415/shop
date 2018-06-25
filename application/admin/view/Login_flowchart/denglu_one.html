@@ -5,8 +5,10 @@
     <link rel="stylesheet" type="text/css" href="/static/home/css/land.css">
     <link rel="stylesheet" type="text/css" href="/static/home/Plug/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/home/Plug/public.css">
-    <script src="/static/home/Plug/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="/static/layer/theme/default/layer.css">
 
+    <script src="/static/home/Plug/jquery-1.11.1.min.js"></script>
+    <script src="/static/layer/layer.js"></script>
     <style type="text/css">
 .content {
     text-align: center;
@@ -430,7 +432,6 @@ a{
         for (var i = 0, f; f = files[i]; i++) {
             //不是图片不处理
             if (!f.type.match('image.*')) {
-
                 continue;
             }
             var reader = new FileReader();
