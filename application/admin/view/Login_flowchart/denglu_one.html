@@ -341,7 +341,7 @@ a{
                     <div class="col-md-6">
                         <div class="introduction" style="padding: 0">
                         
-                           <img src="{$Login_background}"class="title2">
+                           <img src="{$Login_flowchart}"class="title2">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -383,7 +383,7 @@ a{
                     <div class="introduction">
                         <div class="title">
 
-                            <img src="{$Login_background}" id="title1">
+                            <img src="{$Login_flowchart}" id="title1">
                         </div>
                         <div class="upload">
                             <input multiple="multiple"class="file1" type="file" name="img" size="3"id="fileinp" >
@@ -405,7 +405,7 @@ a{
     $("form[name=addForm]").submit(function(){  //ok
         var formData  = new FormData($('#addform')[0]);
         $.ajax({
-            url:" {:url('admin/Configuration/Login_background_store')}",
+            url:" {:url('admin/Configuration/Login_flowchart_store')}",
             type:"post",
             data:formData,
             dataType: 'json', //返回的数据类型

@@ -110,14 +110,16 @@ class Index extends controller
         public function shop_index(Request $request)
         {
             $search_input = $request->param('search_input');
-             $shop = CommoditiesEdit::where('title','like',"%$search_input%")->select();
-            $shop = collection($shop)->toArray();
-            $arr =[];
-          /*  explode(" ",$v['chart_img'][0])*/
+            $shop = CommoditiesEdit::where('title','like',"%$search_input%")->paginate(10);
+        /*    $shop = collection($shop)->toArray();*/
              foreach ($shop as &$v) {
                  $v['con'] = substr(explode(" ", $v['chart_img'])[0],7);
              }
-             return view('/index/shangpinbianji',['search_input'=>$search_input,'shop'=> $shop]);
+            $page = $shop->render();
+            $this->assign('shop',$shop);
+            $this->assign('search_input',$search_input);
+            $this->assign('page',$page);
+            return $this->fetch('/index/shangpinbianji');
         }
     public function edit_shop($id)
     {
@@ -268,7 +270,6 @@ class Index extends controller
                     $data['msg'] = '更新失败';
                 }
             }else{
-
                 foreach ($files1 as $key => $file1){
                     $info1 = $file1->move(ROOT_PATH . 'public' . DS . 'static');
                     // $info = $file->move(ROOT_PATH . 'public/uploads');

@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="/static/home/css/land.css">
 	<link rel="stylesheet" type="text/css" href="/static/home/Plug/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/home/Plug/public.css">
+	<script src="/static/home/Plug/jquery-1.11.1.min.js"></script>
 	<style type="text/css">
 .content {
     text-align: center;
@@ -338,7 +339,7 @@ a{
 	  				<div class="col-md-6">
 	  					<div class="introduction" style="padding: 0">
 	  					
-	  						<img src="{$Login_flowchart}"class="title2">
+	  						<img src="{$login_background}"class="title2">
 	  					</div>
 	  				</div>
 	  				<div class="col-md-6">
@@ -360,7 +361,7 @@ a{
 								</div>
 
 	  						</div>
-	  						<button type="button" class="btn btn-success"><a href="landsuccess.html">Sign in</a></button>
+	  						<button type="button" class="btn btn-success"><a href="#">Sign in</a></button>
 
 	  					</form>
 	  					
@@ -380,7 +381,7 @@ a{
                     <div class="introduction">
                         <div class="title">
 
-                            <img src="{$Login_flowchart}" id="title1">
+                            <img src="{$login_background}" id="title1">
                         </div>
                         <div class="upload">
                             <input multiple="multiple"class="file1" type="file" name="img" size="3"id="fileinp" >
@@ -396,26 +397,33 @@ a{
 		</div>
 	</div>
     <script>
-    $("form[name=addForm]").submit(function(){  //ok
-        var formData  = new FormData($('#addform')[0]);
-        $.ajax({
-            url:" {:url('admin/Configuration/introduce_store')}",
-            type:"post",
-            data:formData,
-            dataType: 'json', //返回的数据类型
-            processData:false,// 告诉jQuery不要去处理发送的数据
-            contentType:false,// 告诉jQuery不要去设置Content-Type请求头
-            success:function(data)//ajax执行后的回调函数
-            {
-                if (data.status =='0') {
-                    $('.title2').attr('src',data.msg)
-                } else {
-                    layer.msg(data.msg, {icon: 5, time: 1500});
-                }
-            }
-        });
-        return false;//阻止表单提交
-    });
+		$(function () {
+            $('.land').css('background-image',"url({$login_background})")
+            $("form[name=addForm]").submit(function(){  //ok
+
+                var formData  = new FormData($('#addform')[0]);
+                $.ajax({
+                    url:" {:url('admin/Configuration/Login_background_store')}",
+                    type:"post",
+                    data:formData,
+                    dataType: 'json', //返回的数据类型
+                    processData:false,// 告诉jQuery不要去处理发送的数据
+                    contentType:false,// 告诉jQuery不要去设置Content-Type请求头
+                    success:function(data)//ajax执行后的回调函数
+                    {
+                        if (data.status =='0') {
+                            $('.title2').attr('src',data.msg);
+                            str=data.msg.replace('\\','/');
+							$('.land').css('background-image',"url("+str+")")
+                        } else {
+                            layer.msg(data.msg, {icon: 5, time: 1500});
+                        }
+                    }
+                });
+                return false;//阻止表单提交
+            });
+        })
+
     //显示图片
     document.getElementById('fileinp').onchange = function (evt) {
         // 如果浏览器不支持FileReader，则不处理
