@@ -276,29 +276,23 @@
                                     </div>  
                                     <div class="bd">  
                                         
-                                        <ul style="position: relative; width: 488px; height: 22px;">  
-                                            <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;">  
-                                                <a href="http://www.SuperSlide2.com" target="_blank">  
-                                                    <img src="/static/home/image/commodity.png" class="t6">
-                                                </a>  
+                                        <ul style="position: relative; width: 488px; height: 22px;" class="ul_bg">
+                                          <!--  <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;" >
+
                                             </li>  
                                             <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;">  
-                                                <a href="http://www.SuperSlide2.com" target="_blank">  
-                                                
-                                                </a>  
+
                                             </li>  
                                             <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;">  
-                                                <a href="http://www.SuperSlide2.com" target="_blank">  
-                                                  
-                                                </a>  
+
                                             </li>  
                                             <li style="position: absolute; width: 488px; left: 0px; top: 0px;">  
                                                 
                                             </li>  
                                             <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;">  
                                                 
-                                                </a>  
-                                            </li>  
+
+                                            </li>  -->
                                         </ul>  
                                     </div>  
                                 </div>  
@@ -419,12 +413,12 @@
 </div>
 
 <script>
-document.oncontextmenu=function(){ return false }  
+/*document.oncontextmenu=function(){ return false }
 $(function (){  
       
     jQuery(".TB-focus").slide({ mainCell:".bd ul",effect:"fold",autoPlay:true,delayTime:200 });  
       
-});  
+});  */
 
     $(function () {
         $("form[name=addForm]").submit(function(){  //ok
@@ -454,12 +448,12 @@ $(function (){
                         for(var i=0;i<arr.length; i++)
                         {
                            var arr1 = arr[i].substr(7);
-                        $(".t5").after('<img style="width: 100px;height: 100px" src='+arr1+'>')
+                           $(".ul_bg").append('  <li style="position: absolute; width: 488px; left: 0px; top: 0px;display: none " ><img style="width: 100px;height: 100px" src='+arr1+'></li> ' );
                         }
 
                         for(var i=0;i<arr2.length; i++)
                         {
-                            var arr3 = arr[i].substr(7);
+                            var arr3 = arr2[i].substr(7);
                             $(".t6").after('<img src='+arr3+ '>')
                         }
                     } else {
