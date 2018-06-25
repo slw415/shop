@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<!--<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>-->
+<link rel="stylesheet" type="text/css" href="/static/home/css/Commodity_details.css">
+<link rel="stylesheet" type="text/css" href="/static/home/Plug/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/home/Plug/public.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/layer/theme/default/layer.css">
+<script type="text/javascript" src="/static/home/Plug/jquery-1.11.1.min.js"></script>
+	<!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!--	<script src="https://unpkg.com/element-ui/lib/index.js"></script>-->
+	<script src="/static/layer/layer.js"></script>
+<style type="text/css">
+.content {
+   
+    text-align: center;
+    background: #fff;
+    max-width: 1200px;
+    overflow: hidden;
+}
+.web {
+    width: 57%;
+    float: left;
+    margin-left: -120px;
+}
+.top_r {
+    float: left;
+    margin-bottom: 2%;
+    font-size: 24px;
+    width: 100%;
+    margin-top: -30px;
+    margin-left: 400px;
+}.top_l {
+    font-size: 12pt;
+    text-align: center;
+    margin-left: 15%;
+    width: 100%;
+    margin-top: 2.5%;
+    border-left: 1px solid #BBBBBB;
+    border-right: 1px solid #BBBBBB;
+}
+.top_r button {
+    margin-right: 3%;
+    font-size: 11pt;
+    height: 25px;
+    line-height: 2px;
+    color: #fff;
+}
+.home {
+    padding-right: 18%;
+}
+.my{
+	margin-left: 11%
+}
+.Backstage {
+    width: 58%;
+    float: right;
+    margin-right: -94px;
+}
+	.left img{
+		width: 150%;
+		margin-top: 3px;
+		margin-left: -20px;
+	}
+	.left{
+		width: 100%;
+
+	}
+/*	.right{
+		margin-left:20px;
+	}*/
+	.name {
+    font-size:16px;
+    margin-top: 2%;
+    margin-top: 5px;
+	}
+	.price {
+		margin:2px;
+}
+	.color {
+    color: #77E4FF;
+    margin-bottom: -2%;
+}
+	.Rebate {
+    width: 259pt;
+    height: 37pt;
+    border: 1px solid #ddd;
+	}
+	.Symbol {
+    background: #77E4FF;
+    font-size: 25pt;
+    width: 15%;
+    color: #fff;
+    float: left;
+	}
+	.rebate {
+    font-size: 13pt;
+    width: 40%;
+    float: left;
+	}
+	.stock {
+    font-size: 14pt;
+    border-left: 2px solid #ccc;
+    margin-top: 3.5%;
+    width: 44%;
+    float: left;
+    overflow: hidden;
+	}
+	.Original_price {
+    font-size: 13pt;
+    color: #f45b6d;
+    text-decoration: line-through;
+	}
+	.Present_price .Rmb {
+    font-size: 16pt;
+	}
+	.Present_price {
+    font-size: 16pt;
+    color: #009944;
+	}
+	.buy {
+    margin-top: 5%;
+    width: 347px;
+    height: 50px;
+    font-size: 16pt;
+    color: #fff;
+    text-align: center;
+    background: #f86c6b;
+	}
+	.buy a {
+    color: #fff;
+    width: 319px;
+    height: 90px;
+    line-height: 39pt;
+    display: block;
+}
+	.Explain{
+		font-size: 14px;
+	}
+	.Explains {
+    width: 77%;
+    float: left;
+    margin-top: 2%;
+    margin-left: -13%;
+}
+.title {
+    margin-left: -1%;
+    width:auto;
+    float: left;
+    /* margin-left: 8px; */
+    margin-top: 0px;
+}
+
+.introduction{
+	position: relative;
+}
+
+.background .introduction img{
+	width:100px;
+}
+
+.Explains input {
+    width: 85%;
+    border: 2px solid #ccc;
+}
+.tupianxinzeng button {
+    background: #fff;
+    border: none;
+    outline: none;
+    font-size: 24pt;
+    color: #ccc;
+    margin-top: 30px;
+    margin-left: 26px;
+}
+.tupianxinzeng {
+    width: 20%;
+    margin-left: 140px;
+    border: 2px dashed #ccc;
+    height: 115px;
+    margin-top: 16px;
+}
+.submit button {
+    margin-top: 60px;
+    background: #fff;
+    width: 15%;
+    outline: none;
+    height: 30px;
+    color: #6BDDFA;
+    font-size: 12pt;
+    border: 1px solid #6BDDFA;
+}
+
+.avatar-uploader .el-upload {
+	border: 1px dashed #d9d9d9;
+	border-radius: 6px;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.upload {
+	display: inline-block;
+	width: 95px;
+	height: 95px;
+	line-height: 90px;
+	background:none;
+	position: relative;
+	text-align: center;
+	border:2px dashed #ccc;
+	font-size: 40px;
+	color: #ccc;
+	  background-image: url(/static/home/image/background.png);
+	margin:40px 0px 0px 10px;
+}
+
+.upload1 {
+	display: inline-block;
+	width: 95px;
+	height: 95px;
+	line-height: 90px;
+	background:none;
+	position: relative;
+	text-align: center;
+	border:2px dashed #ccc;
+	font-size: 40px;
+	color: #ccc;
+	background-image: url(/static/home/image/background.png);
+	margin:40px 0px 0px 10px;
+}
+
+.upload1> input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 95px;
+	height: 95px;
+	opacity: 0;
+	cursor: pointer;
+}
+.img_file{
+	overflow: hidden;
+	position: absolute;
+	top:15px;
+	left: 0px;
+
+}
+
+
+.upload> input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 95px;
+	height: 95px;
+	opacity: 0;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div id="app">
+	<div class="content">
+		<div class="web">
+			<div class="header">
+				<div class="nav">
+					<div class="row">
+							<div class="col-xs-12 col-md-6 col-md-offset-2">
+	 						<div class="top_l">
+								<span class="home"><a href="">首页</a></span>
+								<span class="my"><a href="">联系我们</a></span>
+							</div>
+	 					</div>
+					</div>
+					<div class="col-xs-6 col-md-4">
+	  					<div class="top_r">
+							<button type="button" class="btn btn-success"><a href="../admin/land.html">登录</a></button>
+								
+						</div>
+					</div>
+				</div>
+		
+			</div>
+	
+			<div class="commodity" style="background: #F4F4F4;">
+				<div class="shangpin" >
+					  <div class="row">
+					  	 <div class="left">
+					  	 	<div class="col-xs-12 col-md-4 "id="t5">
+								{volist name="chart_img" id="vo"}
+								<img src="{$vo}"class="t5" >
+								{/volist}
+
+			      			</div>
+					  	 </div>
+					  	 <div class="right" v-for="site in sites">
+					  	 	<div class="col-xs-12 col-md-7">
+					  	 		<div class="name">
+			      					<span class="t1">
+			      						{$shop.title}
+			      					</span>
+			      				</div>
+			      				<div class="price">
+			      					 <span class="Original_price t2">
+			      					{$shop.price}
+			      					</span>
+			      					<span class="Present_price">
+										<span class="Rmb">￥</span><span class="t3">{$shop.original_price}</span>
+			      					</span>
+			      				</div>
+			      				<div class="Rebate">
+			      					<div class="Symbol">%</div>
+			      					<div class="rebate">
+			      						<p class="color">￥200.00</p>
+			      						<p>100%Rebate</p>
+			      					</div>
+			      					<div class="stock">
+			      						in stock:{$shop.inventory}
+			      					</div>
+			      				</div>
+			      				<div class="buy">
+			      					<a href="">
+			      						购买
+			      					</a>
+			      				</div>
+			      				<div class="Explain">
+			      					<p class="t4">{$shop.instructions}</p>
+			      				</div>
+					  	 	</div>
+					  	</div>
+						</div>
+				</div>
+				<div class="product_Details">
+		 			Product Details
+		 		</div>
+		 		<div class="meng" style="background: #fff;">
+					{volist name="details_img" id="vo"}
+					<img src="{$vo}" class="t6"/>
+					{/volist}
+		 		</div>
+			</div>
+			<!-- <div class="footer">
+				<p>联系电话：{{ContactNumber}}</p>
+				<p>邮箱：{{Email}}</p>
+			</div> -->
+		</div>
+	<!-- </div> -->
+		<div class="Backstage">
+			<div class="edit">
+				<div class="edit_header">
+					<span class="Edit">编辑底部</span>
+					<span>点击进入管理</span>
+				</div>
+				<form name="addForm" id="addform" method="post" action="{:url('admin/Index/index_form')}" enctype="multipart/form-data">
+				<div class="background">
+					<div class="introduction">
+						<div class="introductiones"><span>商品名称: <input type="text" name="title"value="{$shop.title}"/></span></div>
+	  					<div class="introductiones"><span>商品价格: <input type="text" name="price"value="{$shop.price}"/></span></div>
+	  					<div class="introductiones"><span>商品原价： <input type="text" name="original_price"value="{$shop.original_price}"/></span></div>
+	  					<div class="Inventory"><span>库存：<input type="number" name="inventory"min=0 value="{$shop.inventory}"/></span></div>
+	  					<div class="Explains"><span>说明： <input type="text" name="instructions"value="{$shop.instructions}"/></span></div>
+					</div>
+				</div>
+				<div class="background">
+					<div class="introduction">
+						<div class="title"id="imgboxid">
+							<h5>商品轮播图</h5>
+							{volist name="chart_img" id="vo"}
+								<img src="{$vo}"class="lunbo"/>
+							{/volist}
+						</div>
+
+						<div class="img_file">
+							<div class="upload" style="opacity:0;">
+								+
+								<input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',0)"  class="file">
+
+							</div>
+							<div class="upload"  style="opacity:0">
+								+
+								<input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',1)"class="file">
+
+							</div>
+							<div class="upload" style="opacity: 0">
+								+
+								<input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',2)"class="file">
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="background">
+					<div class="introduction">
+						<div class="title"id="imgboxid1">
+							<h5>商品详情页</h5>
+							{volist name="details_img" id="vo"}
+							<img src="{$vo}" class="xiangqing"/>
+							{/volist}
+						</div>
+                        <div class="img_file imgfile1">
+                            <div class="upload" style="opacity:0;">
+                                +
+                                <input multiple="multiple" type="file" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','example',0)"  class="file1">
+
+                            </div>
+                            <div class="upload"  style="opacity:0">
+                                +
+                                <input multiple="multiple" type="file" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','example',1)"class="file1">
+
+                            </div>
+                            <div class="upload" style="opacity: 0">
+                                +
+                                <input multiple="multiple" type="file" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','example',2)"class="file1">
+
+                            </div>
+                        </div>
+					</div>
+				</div>
+			<!-- 	<div class="edit" style="float: left; border: 2px solid #ccc;padding: 2% 4%;border-radius: 4%;text-align: center;">
+					<p>邮箱 :<input type="" name="" v-model="Email" style="border: none;"></p>
+					<p style="margin-left:40px;">联系电话 ：<input type="" name="" v-model="ContactNumber" style="border: none;"></p>
+				</div> -->
+				<div class="submit">
+					<button type="submit">提交</button>
+				</div>
+				</form>
+			</div>
+		</div>
+
+</div>
+
+</div>
+
+<script>
+
+	$(function () {
+        $("form[name=addForm]").submit(function(){  //ok
+            var formData  = new FormData($('#addform')[0]);
+            // 上传到服务器的字段名称
+            $.ajax({
+                url:"{:url('/Admin/Index/store_shop',['id'=>$shop.id])}",
+                type:"post",
+                data:formData,
+                dataType: 'json', //返回的数据类型
+                processData:false,// 告诉jQuery不要去处理发送的数据
+                contentType:false,// 告诉jQuery不要去设置Content-Type请求头
+                success:function(data)//ajax执行后的回调函数
+                {
+                    if (data.status =='0') {
+                        console.log(JSON.parse(data.msg))
+
+                            $('.t1').text(JSON.parse(data.msg).title);
+                            $('.t2').text(JSON.parse(data.msg).price);
+							$('.t3').text(JSON.parse(data.msg).original_price);
+							$('.t4').text(JSON.parse(data.msg).instructions);
+                          /*  $('.t5').attr('src',JSON.parse(data.msg).chart_img.substring(7));*/
+							var arr = new Array();
+							var arr2 = new Array();
+                            var arr = JSON.parse(data.msg).chart_img.split(' ');
+                            var arr2 = JSON.parse(data.msg).details_img.split(' ');
+                        $('.t5').remove();
+                        for(var i=0;i<arr.length; i++) {
+                            var arr1 = arr[i].substring(7);
+                            $("#t5").append('<img class="t5"style="width: 100px;height: 100px" src='+arr1+'>')
+                        }
+                        $('.t6').remove();
+                        for(var i=0;i<arr2.length; i++) {
+                            var arr1 = arr2[i].substring(7);
+                            $(".meng").append('<img class="t6"style="width: 100px;height: 100px" src='+arr1+'>')
+
+                        }
+                    } else {
+                        layer.msg(data.msg, {icon: 5, time: 1500});
+                    }
+                }
+            });
+            return false;//阻止表单提交
+        });
+      	var img_index =  $("#imgboxid").find("img").length;
+      	var img_index1 = $("#imgboxid1").find("img").length;
+      	if(img_index>=3){
+            $('.img_file').find(".upload").css('opacity','0');
+            // $(".img_file").find(".upload").eq($i+1).css('opacity','1');
+		}else {
+            $('.img_file').find(".upload").css('opacity','0')
+            $(".img_file").find(".upload").eq(img_index).css('opacity','1');
+		}
+		if(img_index1>=3){
+            $('.img_file1').find(".upload").css('opacity','0')
+        }else{
+            $('.img_file1').find(".upload").css('opacity','0')
+            $(".img_file1").find(".upload").eq(img_index).css('opacity','1');
+        }
+		// console.log(img_index,'ty')
+    })
+  function xmTanUploadImg(obj,idname,classname,$i) {
+        console.log($i,'dd');
+        // return;
+        var img_index =  $("#imgboxid").find("img").length;
+        if(img_index>=3){
+            $('.img_file').find(".upload").css('opacity','0')
+            // $(".img_file").find(".upload").eq($i+1).css('opacity','1');
+        }else {
+            $('.img_file').find(".upload").css('opacity','0')
+            $(".img_file").find(".upload").eq(img_index).css('opacity','1');
+        }
+        // $('.upload').css('opacity','0')
+        // $(".upload").eq($i+1).css('opacity','1');
+        var fl=obj.files.length;
+        for(var i=0;i<fl;i++){
+            var file=obj.files[i];
+            if(obj.files[i].type.indexOf("image/")==-1){
+                layer.msg('请上传图片', {icon: 5, time: 1500})
+                return false;
+            }
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var imgstr='<img style="width:100px;height:100px;margin-left: 10px" src="'+e.target.result+'"/>';
+                var oimgbox=document.getElementById(idname);
+                var ndiv=document.createElement("span");
+                $("."+classname).css('display','none');
+                $('.lunbo').eq($i).attr('src',e.target.result);
+                if($('.lunbo').length<3 && $('.upload').eq($i).css('opacity')==1){
+                    console.log($('.lunbo img').length)
+                    ndiv.innerHTML=imgstr;
+                    ndiv.className="img-div";
+                    oimgbox.appendChild(ndiv);
+                }
+
+            }
+            reader.readAsDataURL(file);
+//alert(1);
+        }
+
+    }
+    function xmTanUploadImg1(obj,idname,classname,$i) {
+        var img_index =  $("#imgboxid1").find("img").length;
+        if(img_index>=3){
+            $('.img_file').find(".upload").css('opacity','0')
+            // $(".img_file").find(".upload").eq($i+1).css('opacity','1');
+        }else {
+            $('.img_file1').find(".upload").css('opacity','0')
+            $(".img_file1").find(".upload").eq(img_index).css('opacity','1');
+        }
+        var fl=obj.files.length;
+        for(var i=0;i<fl;i++){
+            var file=obj.files[i];
+            if(obj.files[i].type.indexOf("image/")==-1){
+                layer.msg('请上传图片', {icon: 5, time: 1500})
+                return false;
+            }
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var imgstr = '<img style="width:100px;height:100px;margin-left: 10px" src="' + e.target.result + '"/>';
+                var oimgbox = document.getElementById(idname);
+                var ndiv = document.createElement("span");
+                $("." + classname).css('display', 'none');
+                $('.xiangqing').eq($i).attr('src', e.target.result);
+                if ($('#imgboxid1 span').length > 2) {
+                    layer.msg('图片最多上传3张', {icon: 5, time: 1500})
+                    return false;
+                }
+                ;
+                if ($('.xiangqing').length < 3 && $('.upload1').eq($i).css('opacity') == 1) {
+                    ndiv.innerHTML = imgstr;
+                    ndiv.className = "img-div";
+                    oimgbox.appendChild(ndiv);
+                }
+            }
+            reader.readAsDataURL(file);
+//alert(1);
+        }
+
+    }
+</script>
+</body>
+</html>

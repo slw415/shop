@@ -7,13 +7,17 @@
 <link rel="stylesheet" type="text/css" href="/static/home/css/Commodity_details.css">
 <link rel="stylesheet" type="text/css" href="/static/home/Plug/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/static/home/Plug/public.css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 <link rel="stylesheet" href="/static/layer/theme/default/layer.css">
 <script type="text/javascript" src="/static/home/Plug/jquery-1.11.1.min.js"></script>
-	<!-- 引入样式 -->
-	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
-	<script src="/static/layer/layer.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="/static/layer/layer.js"></script>
+   <script type="text/javascript" src="/static/home/Plug/jquery-1.8.3.min.js"></script>
+   <script type="text/javascript" src="/static/home/Plug/jquery.SuperSlide.2.1.1.source.js"></script>
+
+ 
 <style type="text/css">
 .content {
    
@@ -54,75 +58,78 @@
     padding-right: 18%;
 }
 .my{
-	margin-left: 11%
+    margin-left: 11%
 }
 .Backstage {
     width: 58%;
     float: right;
     margin-right: -94px;
 }
-	.left img{
-		width: 150%;
-		margin-top: 3px;
-		margin-left: -20px;
-	}
-	.left{
-		width: 100%;
+   .left img {
+    width: 50%;
+    margin-top: 3px;
+    margin-left: -316px;
+}
+    .left{
+        width: 100%;
 
-	}
-/*	.right{
-		margin-left:20px;
-	}*/
-	.name {
+    }
+    ul li{
+        list-style: none;
+    }
+/*  .right{
+        margin-left:20px;
+    }*/
+    .name {
     font-size:16px;
     margin-top: 2%;
     margin-top: 5px;
-	}
-	.price {
-		margin:2px;
+    }
+    .price {
+        margin:2px;
 }
-	.color {
+    .color {
     color: #77E4FF;
     margin-bottom: -2%;
 }
-	.Rebate {
+    .Rebate {
     width: 259pt;
     height: 37pt;
     border: 1px solid #ddd;
-	}
-	.Symbol {
+    }
+    .Symbol {
     background: #77E4FF;
     font-size: 25pt;
     width: 15%;
     color: #fff;
     float: left;
-	}
-	.rebate {
+    }
+    .rebate {
     font-size: 13pt;
     width: 40%;
     float: left;
-	}
-	.stock {
+    }
+    .stock {
     font-size: 14pt;
     border-left: 2px solid #ccc;
     margin-top: 3.5%;
     width: 44%;
     float: left;
     overflow: hidden;
-	}
-	.Original_price {
+    }
+    .Original_price {
     font-size: 13pt;
     color: #f45b6d;
     text-decoration: line-through;
-	}
-	.Present_price .Rmb {
+    }
+    .Present_price .Rmb {
     font-size: 16pt;
-	}
-	.Present_price {
+    }
+    .Present_price {
     font-size: 16pt;
     color: #009944;
-	}
-	.buy {
+    }
+    .buy {
     margin-top: 5%;
     width: 347px;
     height: 50px;
@@ -130,18 +137,18 @@
     color: #fff;
     text-align: center;
     background: #f86c6b;
-	}
-	.buy a {
+    }
+    .buy a {
     color: #fff;
     width: 319px;
     height: 90px;
     line-height: 39pt;
     display: block;
 }
-	.Explain{
-		font-size: 14px;
-	}
-	.Explains {
+    .Explain{
+        font-size: 14px;
+    }
+    .Explains {
     width: 77%;
     float: left;
     margin-top: 2%;
@@ -156,7 +163,7 @@
 }
 
 .background .introduction img{
-	width:100px;
+    width:100px;
 }
 
 .Explains input {
@@ -191,189 +198,235 @@
 }
 
 .avatar-uploader .el-upload {
-	border: 1px dashed #d9d9d9;
-	border-radius: 6px;
-	cursor: pointer;
-	position: relative;
-	overflow: hidden;
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 * {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .upload {
-	display: inline-block;
-	width: 90px;
-	height: 90px;
-	line-height: 90px;
-	background:none;
-	position: relative;
-	text-align: center;
-	border:2px dashed #ccc;
-	font-size: 40px;
-	color: #ccc;
-	  background-image: url(/static/home/image/background.png);
-	margin:40px 0px 0px 10px;
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    background:none;
+    position: relative;
+    text-align: center;
+    border:2px dashed #ccc;
+    font-size: 40px;
+    color: #ccc;
+     /* background-image: url(/static/home/image/background.png);*/
+    margin:40px 0px 0px 10px;
 }
 .upload> input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }
 </style>
 </head>
 <body>
 <div id="app">
-	<div class="content">
-		<div class="web">
-			<div class="header">
-				<div class="nav">
-					<div class="row">
-							<div class="col-xs-12 col-md-6 col-md-offset-2">
-	 						<div class="top_l">
-								<span class="home"><a href="">首页</a></span>
-								<span class="my"><a href="">联系我们</a></span>
-							</div>
-	 					</div>
-					</div>
-					<div class="col-xs-6 col-md-4">
-	  					<div class="top_r">
-							<button type="button" class="btn btn-success"><a href="../admin/land.html">登录</a></button>
-								
-						</div>
-					</div>
-				</div>
-		
-			</div>
-	
-			<div class="commodity" style="background: #F4F4F4;">
-				<div class="shangpin" >
-					  <div class="row">
-					  	 <div class="left">
-					  	 	<div class="col-xs-12 col-md-4 ">
-			      				<img src="/static/home/image/detail.png"class="t5" >
-			      			</div>
-					  	 </div>
-					  	 <div class="right" v-for="site in sites">
-					  	 	<div class="col-xs-12 col-md-7">
-					  	 		<div class="name">
-			      					<span class="t1">
-			      						{{site.name}}
-			      					</span>
-			      				</div>
-			      				<div class="price">
-			      					 <span class="Original_price t2">
-			      						￥{{site.price}}
-			      					</span>
-			      					<span class="Present_price">
-										<span class="Rmb">￥</span><span class="t3">{{site.Present}}</span>
-			      					</span>
-			      				</div>
-			      				<div class="Rebate">
-			      					<div class="Symbol">%</div>
-			      					<div class="rebate">
-			      						<p class="color">￥200.00</p>
-			      						<p>100%Rebate</p>
-			      					</div>
-			      					<div class="stock">
-			      						in stock:{{site.stock}}
-			      					</div>
-			      				</div>
-			      				<div class="buy">
-			      					<a href="">
-			      						购买
-			      					</a>
-			      				</div>
-			      				<div class="Explain">
-			      					<p class="t4">{{site.Explain}}</p>
-			      				</div>
-					  	 	</div>
-					  	</div>
-						</div>
-				</div>
-				<div class="product_Details">
-		 			Product Details
-		 		</div>
-		 		<div class="meng" style="background: #fff;">	
-		 			<img src="/static/home/image/men.png" class="t6">
-		 		</div>
-			</div>
-			<!-- <div class="footer">
-				<p>联系电话：{{ContactNumber}}</p>
-				<p>邮箱：{{Email}}</p>
-			</div> -->
-		</div>
-	<!-- </div> -->
-		<div class="Backstage">
-			<div class="edit">
-				<div class="edit_header">
-					<span class="Edit">编辑底部</span>
-					<span>点击进入管理</span>
-				</div>
-				<form name="addForm" id="addform" method="post" action="{:url('admin/Index/index_form')}" enctype="multipart/form-data">
-				<div class="background">
-					<div class="introduction">
-						<div class="introductiones"><span>商品名称: <input type="text" name="title"/></span></div>
-	  					<div class="introductiones"><span>商品价格: <input type="text" name="price"/></span></div>
-	  					<div class="introductiones"><span>商品原价： <input type="text" name="original_price"/></span></div>
-	  					<div class="Inventory"><span>库存：<input type="number" name="inventory"min=0 /></span></div>
-	  					<div class="Explains"><span>说明： <input type="text" name="instructions"/></span></div>
-					</div>
-				</div>
-				<div class="background">
-					<div class="introduction">
-						<div class="title"id="imgboxid">
-							<h5>商品轮播图</h5>
-							<img src="/static/home/image/commodity.png"class="example">
-						</div>
-						<div class="upload">
-							+
-							<input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',0)" class="file">
-							<input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',1)"style="display: none"class="file">
-							<input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',2)"style="display: none"class="file">
+    <div class="content">
+        <div class="web">
+            <div class="header">
+                <div class="nav">
+                    <div class="row">
+                            <div class="col-xs-12 col-md-6 col-md-offset-2">
+                            <div class="top_l">
+                                <span class="home"><a href="">首页</a></span>
+                                <span class="my"><a href="">联系我们</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <div class="top_r">
+                            <button type="button" class="btn btn-success"><a href="../admin/land.html">登录</a></button>
+                                
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+    
+            <div class="commodity" style="background: #F4F4F4;">
+                <div class="shangpin" >
+                      <div class="row">
+                         <div class="left">
+                            <div class="col-xs-12 col-md-4 ">
+                                <div class="TB-focus" style="margin:0 auto">  
+                                    <div class="hd">  
+                                        <!-- <ol >  
+                                            <li class="on">1</li>  
+                                            <li>2</li>  
+                                            <li>3</li>  
+                                            <li>4</li>  
+                                            <li>5</li>  
+                                        </ol>   -->
+                                      
+                                    </div>  
+                                    <div class="bd">  
+                                        
+                                        <ul style="position: relative; width: 488px; height: 22px;">  
+                                            <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;">  
+                                                <a href="http://www.SuperSlide2.com" target="_blank">  
+                                                    <img src="/static/home/image/commodity.png" class="t6">
+                                                </a>  
+                                            </li>  
+                                            <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;">  
+                                                <a href="http://www.SuperSlide2.com" target="_blank">  
+                                                
+                                                </a>  
+                                            </li>  
+                                            <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;">  
+                                                <a href="http://www.SuperSlide2.com" target="_blank">  
+                                                  
+                                                </a>  
+                                            </li>  
+                                            <li style="position: absolute; width: 488px; left: 0px; top: 0px;">  
+                                                
+                                            </li>  
+                                            <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;">  
+                                                
+                                                </a>  
+                                            </li>  
+                                        </ul>  
+                                    </div>  
+                                </div>  
+        
+                            </div>
+                         </div>
+                         <div class="right" v-for="site in sites">
+                            <div class="col-xs-12 col-md-7">
+                                <div class="name">
+                                    <span class="t1">
+                                        {{site.name}}
+                                    </span>
+                                </div>
+                                <div class="price">
+                                     <span class="Original_price t2">
+                                        ￥{{site.price}}
+                                    </span>
+                                    <span class="Present_price">
+                                        <span class="Rmb">￥</span><span class="t3">{{site.Present}}</span>
+                                    </span>
+                                </div>
+                                <div class="Rebate">
+                                    <div class="Symbol">%</div>
+                                    <div class="rebate">
+                                        <p class="color">￥200.00</p>
+                                        <p>100%Rebate</p>
+                                    </div>
+                                    <div class="stock">
+                                        in stock:{{site.stock}}
+                                    </div>
+                                </div>
+                                <div class="buy">
+                                    <a href="">
+                                        购买
+                                    </a>
+                                </div>
+                                <div class="Explain">
+                                    <p class="t4">{{site.Explain}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+                <div class="product_Details">
+                    Product Details
+                </div>
+                <div class="meng" style="background: #fff;">    
+                    <img src="/static/home/image/men.png" class="t6">
+                </div>
+            </div>
+            <!-- <div class="footer">
+                <p>联系电话：{{ContactNumber}}</p>
+                <p>邮箱：{{Email}}</p>
+            </div> -->
+        </div>
+    <!-- </div> -->
+        <div class="Backstage">
+            <div class="edit">
+                <div class="edit_header">
+                    <span class="Edit">编辑底部</span>
+                    <span>点击进入管理</span>
+                </div>
+                <form name="addForm" id="addform" method="post" action="{:url('admin/Index/index_form')}" enctype="multipart/form-data">
+                <div class="background">
+                    <div class="introduction">
+                        <div class="introductiones"><span>商品名称: <input type="text" name="title"/></span></div>
+                        <div class="introductiones"><span>商品价格: <input type="text" name="price"/></span></div>
+                        <div class="introductiones"><span>商品原价： <input type="text" name="original_price"/></span></div>
+                        <div class="Inventory"><span>库存：<input type="number" name="inventory"min=0 /></span></div>
+                        <div class="Explains"><span>说明： <input type="text" name="instructions"/></span></div>
+                    </div>
+                </div>
+                <div class="background">
+                    <div class="introduction">
+                        <div class="title"id="imgboxid">
+                            <h5>商品轮播图</h5>
+                            <img src="/static/home/image/commodity.png"class="example">
+                        </div>
+                        <div class="upload">
+                            +
+                            <input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',0)" class="file">
+                            <input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',1)"style="display: none"class="file">
+                            <input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',2)"style="display: none"class="file">
 
-						</div>
+                        </div>
 
-					</div>
-				</div>
+                    </div>
+                </div>
 
-				<div class="background">
-					<div class="introduction">
-						<div class="title"id="imgboxid1">
-							<h5>商品详情页</h5>
-							<img src="/static/home/image/men.png" class="exampl1">
-						</div>
-						<div class="upload">
-							+
-							<input multiple="multiple"class="file1" type="file" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','exampl1',0)" >
-							<input multiple="multiple" type="file"class="file1" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','exampl1',1)"style="display: none">
-							<input multiple="multiple" type="file"class="file1" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','exampl1',2)"style="display: none">
+                <div class="background">
+                    <div class="introduction">
+                        <div class="title"id="imgboxid1">
+                            <h5>商品详情页</h5>
+                            <img src="/static/home/image/men.png" class="exampl1">
+                        </div>
+                        <div class="upload">
+                            +
+                            <input multiple="multiple"class="file1" type="file" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','exampl1',0)" >
+                            <input multiple="multiple" type="file"class="file1" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','exampl1',1)"style="display: none">
+                            <input multiple="multiple" type="file"class="file1" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','exampl1',2)"style="display: none">
 
-						</div>
-					</div>
-				</div>
-			<!-- 	<div class="edit" style="float: left; border: 2px solid #ccc;padding: 2% 4%;border-radius: 4%;text-align: center;">
-					<p>邮箱 :<input type="" name="" v-model="Email" style="border: none;"></p>
-					<p style="margin-left:40px;">联系电话 ：<input type="" name="" v-model="ContactNumber" style="border: none;"></p>
-				</div> -->
-				<div class="submit">
-					<button type="submit">提交</button>
-				</div>
-				</form>
-			</div>
-		</div>
+                        </div>
+                    </div>
+                </div>
+            <!--    <div class="edit" style="float: left; border: 2px solid #ccc;padding: 2% 4%;border-radius: 4%;text-align: center;">
+                    <p>邮箱 :<input type="" name="" v-model="Email" style="border: none;"></p>
+                    <p style="margin-left:40px;">联系电话 ：<input type="" name="" v-model="ContactNumber" style="border: none;"></p>
+                </div> -->
+                <div class="submit">
+                    <button type="submit">提交</button>
+                </div>
+                </form>
+            </div>
+        </div>
 
 </div>
 
 </div>
 
 <script>
-	$(function () {
+document.oncontextmenu=function(){ return false }  
+$(function (){  
+      
+    jQuery(".TB-focus").slide({ mainCell:".bd ul",effect:"fold",autoPlay:true,delayTime:200 });  
+      
+});  
+
+    $(function () {
         $("form[name=addForm]").submit(function(){  //ok
             var formData  = new FormData($('#addform')[0]);
             // 上传到服务器的字段名称
@@ -391,23 +444,23 @@
 
                             $('.t1').text(JSON.parse(data.msg).title);
                             $('.t2').text(JSON.parse(data.msg).price);
-							$('.t3').text(JSON.parse(data.msg).original_price);
-							$('.t4').text(JSON.parse(data.msg).instructions);
+                            $('.t3').text(JSON.parse(data.msg).original_price);
+                            $('.t4').text(JSON.parse(data.msg).instructions);
                           /*  $('.t5').attr('src',JSON.parse(data.msg).chart_img.substring(7));*/
-							var arr = new Array();
-							var arr2 = new Array();
+                            var arr = new Array();
+                            var arr2 = new Array();
                             var arr = JSON.parse(data.msg).chart_img.split(' ');
                             var arr2 = JSON.parse(data.msg).details_img.split(' ');
                         for(var i=0;i<arr.length; i++)
                         {
-                           var arr1 = arr[i].substring(7);
+                           var arr1 = arr[i].substr(7);
                         $(".t5").after('<img style="width: 100px;height: 100px" src='+arr1+'>')
                         }
 
                         for(var i=0;i<arr2.length; i++)
                         {
-                            var arr3 = arr[i].substring(7);
-                            $(".t6").after('<img style="width: 100px;height: 100px" src='+arr3+'>')
+                            var arr3 = arr[i].substr(7);
+                            $(".t6").after('<img src='+arr3+ '>')
                         }
                     } else {
                         layer.msg(data.msg, {icon: 5, time: 1500});
@@ -418,23 +471,23 @@
         });
     })
     new Vue({
-	  el: '#app',
-	  data: {
-		message: 'Runoob!',
-		ContactNumber:'188 8888 8888',
-		Email:'123456789@163.com',
-		 sites: [
-		  {
-			name: '绅士 大罐混合坚果 963g',
-			price:'200',
-			Present:'0.00',
-			stock:'500',
-			Explain:'说明：说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容。'
-		  }
+      el: '#app',
+      data: {
+        message: 'Runoob!',
+        ContactNumber:'188 8888 8888',
+        Email:'123456789@163.com',
+         sites: [
+          {
+            name: '绅士 大罐混合坚果 963g',
+            price:'200',
+            Present:'0.00',
+            stock:'500',
+            Explain:'说明：说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容。'
+          }
 
-		]
-	  }
-	  }
+        ]
+      }
+      }
 )
     function xmTanUploadImg(obj,idname,classname,$i) {
         $('.file').css('display','none')
