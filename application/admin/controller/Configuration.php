@@ -2,6 +2,7 @@
 
 namespace app\admin\controller;
 
+use think\Db;
 use think\Request;
 use think\Validate;
 use think\Controller;
@@ -168,9 +169,12 @@ class Configuration extends controller
     //轮播图
     public function banner()
     {
-        $con = \app\admin\model\CommoditiesEdit::select();
-        $con =collection($con)->toArray();
-        return view('/banner/Home',['con'=>$con]);
+        $cons = Db::table('shop_commodities_edit')
+            ->field('id,title')
+            ->select();
+        $con =collection($cons)->toArray();
+        $cons = json_encode($cons);
+        return view('/banner/Home',['con'=>$con,'cons'=>$cons]);
     }
 
 }

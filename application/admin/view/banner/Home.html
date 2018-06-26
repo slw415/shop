@@ -402,8 +402,13 @@
                 reader.readAsDataURL(f);
             }
         }
+    	var json =JSON.parse('{$cons}');
         $('.xinzeng').click(function () {
-			
+            $(".background").append('<div class="introduction"style="position: relative"><img src="/static/home/image/baner.png"id="baner"> <div class="img_file"> <div class="upload" style="opacity:0;"><input type="file"name="banner"id="fileinp"></div></div></div><div class="plush"><div class="shop"><select class="selectId">'+$.each(json,function (i,item) {
+                // console.log(item.title)
+                $('.selectId').append("<option value="+5+">"+5+"</option>");
+            })+'</select></div></div>')
+            // console.log(item.title)
         })
     })
 
