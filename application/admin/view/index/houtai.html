@@ -31,6 +31,9 @@
     float: left;
     margin-left: -120px;
 }
+.meng img {
+    width: 54%;
+}
 .top_r {
     float: left;
     margin-bottom: 2%;
@@ -73,6 +76,10 @@
     .left{
         width: 100%;
 
+    }
+    .left img{
+        width: 200px;
+        height: 400px;
     }
     ul li{
         list-style: none;
@@ -232,6 +239,17 @@
     opacity: 0;
     cursor: pointer;
 }
+.ul_bgn img{
+    width: 100%;
+}
+.hid{
+    height: 220px;
+    margin-top: 10px;
+    width: 180px;
+    border: 1px solid #ccc;
+}
+
+
 </style>
 </head>
 <body>
@@ -274,7 +292,8 @@
                                         </ol>   -->
                                       
                                     </div>  
-                                    <div class="bd">  
+                                    <div class="bd"> 
+                                    <div class="hid"></div> 
                                         
                                         <ul style="position: relative; width: 488px; height: 22px;" class="ul_bg">
                                           <!--  <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;" >
@@ -414,11 +433,14 @@
 
 <script>
 /*document.oncontextmenu=function(){ return false }
-$(function (){  
-      
-    jQuery(".TB-focus").slide({ mainCell:".bd ul",effect:"fold",autoPlay:true,delayTime:200 });  
-      
-});  */
+  */$(document).ready(function(){
+      $(".upload").click(function(){
+      $(".hid").hide();
+      });
+      $("#show").click(function(){
+      $(".Order_ID").show();
+      });
+    });
 
     $(function () {
         $("form[name=addForm]").submit(function(){  //ok
@@ -448,7 +470,7 @@ $(function (){
                         for(var i=0;i<arr.length; i++)
                         {
                            var arr1 = arr[i].substr(7);
-                           $(".ul_bg").append('  <li style="position: absolute; width: 488px; left: 0px; top: 0px;display: none " ><img style="width: 100px;height: 100px" src='+arr1+'></li> ' );
+                           $(".ul_bg").append('  <li style="position: absolute; width: 488px; left: 0px; top: 0px;display: none " ><img style="width: 180px;height: 200px;margin-right:10px;:" src='+arr1+'></li> ' );
                         }
 
                         for(var i=0;i<arr2.length; i++)
@@ -542,6 +564,17 @@ $(function (){
         }
 
     }
+
+    $('.bd').children('ul').on('DOMNodeInserted',function(){
+        console.log('sf')
+          jQuery(".TB-focus").slide({ mainCell:".bd ul",effect:"fold",autoPlay:true,delayTime:200 });  
+    })
+
+//     $(function (){  
+      
+//     jQuery(".TB-focus").slide({ mainCell:".bd ul",effect:"fold",autoPlay:true,delayTime:200 });  
+      
+// });
 </script>
 </body>
 </html>

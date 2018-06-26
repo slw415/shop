@@ -3,17 +3,21 @@
 <head>
 <meta charset="utf-8">
 <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
-<!--<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>-->
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/static/home/css/Commodity_details.css">
 <link rel="stylesheet" type="text/css" href="/static/home/Plug/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/static/home/Plug/public.css">
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 <link rel="stylesheet" href="/static/layer/theme/default/layer.css">
 <script type="text/javascript" src="/static/home/Plug/jquery-1.11.1.min.js"></script>
-	<!-- 引入样式 -->
-	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-<!--	<script src="https://unpkg.com/element-ui/lib/index.js"></script>-->
-	<script src="/static/layer/layer.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="/static/layer/layer.js"></script>
+   <script type="text/javascript" src="/static/home/Plug/jquery-1.8.3.min.js"></script>
+   <script type="text/javascript" src="/static/home/Plug/jquery.SuperSlide.2.1.1.source.js"></script>
+
+ 
 <style type="text/css">
 .content {
    
@@ -26,6 +30,9 @@
     width: 57%;
     float: left;
     margin-left: -120px;
+}
+.meng img {
+    width: 54%;
 }
 .top_r {
     float: left;
@@ -54,75 +61,83 @@
     padding-right: 18%;
 }
 .my{
-	margin-left: 11%
+    margin-left: 11%
 }
 .Backstage {
     width: 58%;
     float: right;
     margin-right: -94px;
 }
-	.left img{
-		width: 150%;
-		margin-top: 3px;
-		margin-left: -20px;
-	}
-	.left{
-		width: 100%;
+  /* .left img {
+    width: 50%;
+  
+    /*margin-left: -316px;*/
+}*/
+    .left{
+        width: 100%;
 
-	}
-/*	.right{
-		margin-left:20px;
-	}*/
-	.name {
+    }
+    .left img{
+        width: 150px;
+        height:150px;
+        margin-top: 23px;
+    }
+    ul li{
+        list-style: none;
+    }
+/*  .right{
+        margin-left:20px;
+    }*/
+    .name {
     font-size:16px;
     margin-top: 2%;
     margin-top: 5px;
-	}
-	.price {
-		margin:2px;
+    }
+    .price {
+        margin:2px;
 }
-	.color {
+    .color {
     color: #77E4FF;
     margin-bottom: -2%;
 }
-	.Rebate {
+    .Rebate {
     width: 259pt;
     height: 37pt;
     border: 1px solid #ddd;
-	}
-	.Symbol {
+    }
+    .Symbol {
     background: #77E4FF;
     font-size: 25pt;
     width: 15%;
     color: #fff;
     float: left;
-	}
-	.rebate {
+    }
+    .rebate {
     font-size: 13pt;
     width: 40%;
     float: left;
-	}
-	.stock {
-    font-size: 14pt;
+    }
+    .stock {
+    font-size: 11pt;
     border-left: 2px solid #ccc;
     margin-top: 3.5%;
     width: 44%;
     float: left;
     overflow: hidden;
-	}
-	.Original_price {
+    }
+    .Original_price {
     font-size: 13pt;
     color: #f45b6d;
     text-decoration: line-through;
-	}
-	.Present_price .Rmb {
+    }
+    .Present_price .Rmb {
     font-size: 16pt;
-	}
-	.Present_price {
+    }
+    .Present_price {
     font-size: 16pt;
     color: #009944;
-	}
-	.buy {
+    }
+    .buy {
     margin-top: 5%;
     width: 347px;
     height: 50px;
@@ -130,18 +145,18 @@
     color: #fff;
     text-align: center;
     background: #f86c6b;
-	}
-	.buy a {
+    }
+    .buy a {
     color: #fff;
     width: 319px;
     height: 90px;
     line-height: 39pt;
     display: block;
 }
-	.Explain{
-		font-size: 14px;
-	}
-	.Explains {
+    .Explain{
+        font-size: 14px;
+    }
+    .Explains {
     width: 77%;
     float: left;
     margin-top: 2%;
@@ -159,8 +174,12 @@
 	position: relative;
 }
 
+.imgfile1{
+	position: absolute;
+}
+
 .background .introduction img{
-	width:100px;
+    width:100px;
 }
 
 .Explains input {
@@ -195,74 +214,61 @@
 }
 
 .avatar-uploader .el-upload {
-	border: 1px dashed #d9d9d9;
-	border-radius: 6px;
-	cursor: pointer;
-	position: relative;
-	overflow: hidden;
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 * {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .upload {
-	display: inline-block;
-	width: 95px;
-	height: 95px;
-	line-height: 90px;
-	background:none;
-	position: relative;
-	text-align: center;
-	border:2px dashed #ccc;
-	font-size: 40px;
-	color: #ccc;
-	  background-image: url(/static/home/image/background.png);
-	margin:40px 0px 0px 10px;
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    background:none;
+    position: relative;
+    text-align: center;
+    border:2px dashed #ccc;
+    font-size: 40px;
+    color: #ccc;
+     /* background-image: url(/static/home/image/background.png);*/
+    margin:40px 0px 0px 10px;
 }
 
-.upload1 {
-	display: inline-block;
-	width: 95px;
-	height: 95px;
-	line-height: 90px;
-	background:none;
-	position: relative;
-	text-align: center;
-	border:2px dashed #ccc;
-	font-size: 40px;
-	color: #ccc;
-	background-image: url(/static/home/image/background.png);
-	margin:40px 0px 0px 10px;
+.upload2{
+	 width: 80px !important;
+    height: 80px !important;
+    line-height:80px;
+  
 }
-
-.upload1> input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 95px;
-	height: 95px;
-	opacity: 0;
-	cursor: pointer;
-}
-.img_file{
-	overflow: hidden;
-	position: absolute;
-	top:15px;
-	left: 0px;
-
-}
-
 
 .upload> input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 95px;
-	height: 95px;
-	opacity: 0;
-	cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }
+.ul_bgn img{
+    width: 100%;
+}
+.hid{
+    height: 220px;
+    margin-top: 10px;
+    width: 180px;
+    border: 1px solid #ccc;
+}
+.img_file{overflow: hidden;
+}
+
+
 </style>
 </head>
 <body>
@@ -294,9 +300,45 @@
 					  <div class="row">
 					  	 <div class="left">
 					  	 	<div class="col-xs-12 col-md-4 "id="t5">
-								{volist name="chart_img" id="vo"}
-								<img src="{$vo}"class="t5" >
-								{/volist}
+								
+								 <div class="TB-focus" style="margin:0 auto">  
+                                    <div class="hd">  
+                                        <!-- <ol >  
+                                            <li class="on">1</li>  
+                                            <li>2</li>  
+                                            <li>3</li>  
+                                            <li>4</li>  
+                                            <li>5</li>  
+                                        </ol>   -->
+                                      
+                                    </div>  
+                                    <div class="bd"> 
+                                   <!--  <div class="hid"></div>  -->
+                                        
+                                        <ul style="position: relative; width: 488px; height: 22px;" class="ul_bg">   
+                                        	{volist name="chart_img" id="vo"}
+								
+                                          <li style="position: absolute; width: 200px; height: 180px; display: none; left: 0px; top: 0px;" >
+                                          		<img src="{$vo}"class="t5" >
+                                            </li> 
+                                           {/volist}
+                                            <!-- <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;">  
+
+                                            </li>  
+                                            <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;">  
+
+                                            </li>  
+                                            <li style="position: absolute; width: 488px; left: 0px; top: 0px;">  
+                                                
+                                            </li>  
+                                            <li style="position: absolute; width: 488px; left: 0px; top: 0px; display: none;">  
+                                                
+
+                                            </li>   -->
+                                        </ul>  
+                                    </div>  
+                                </div>  
+								
 
 			      			</div>
 					  	 </div>
@@ -381,17 +423,17 @@
 						{/volist}
 						<div class="img_file">
 
-							<div class="upload" style="opacity:0;">
+							<div class="upload upload2" style="opacity:0;">
 								+
 								<input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',0)"  class="file">
 
 							</div>
-							<div class="upload"  style="opacity:0">
+							<div class="upload upload2"  style="opacity:0">
 								+
 								<input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',1)"class="file">
 
 							</div>
-							<div class="upload" style="opacity: 0">
+							<div class="upload upload2" style="opacity: 0">
 								+
 								<input multiple="multiple" type="file" name="chart_img[]" size="3"onchange="xmTanUploadImg(this,'imgboxid','example',2)"class="file">
 
@@ -413,17 +455,17 @@
 							{volist name="details_imgss" id="vo"}
 							<input type="hidden" value="{$vo}"name="hidden1[]" class="hiddens1">
 							{/volist}
-                            <div class="upload" style="opacity:0;">
+                            <div class="upload upload2" style="opacity:0;">
                                 +
                                 <input multiple="multiple" type="file" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','example',0)"  class="file1">
 
                             </div>
-                            <div class="upload"  style="opacity:0">
+                            <div class="upload upload2"  style="opacity:0">
                                 +
                                 <input multiple="multiple" type="file" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','example',1)"class="file1">
 
                             </div>
-                            <div class="upload" style="opacity: 0">
+                            <div class="upload upload2" style="opacity: 0">
                                 +
                                 <input multiple="multiple" type="file" name="details_img[]" size="3"onchange="xmTanUploadImg1(this,'imgboxid1','example',2)"class="file1">
                             </div>
@@ -500,10 +542,10 @@
             $(".img_file").find(".upload").eq(img_index).css('opacity','1');
 		}
 		if(img_index1>=3){
-            $('.img_file1').find(".upload").css('opacity','0')
+            $('.imgfile1').find(".upload").css('opacity','0')
         }else{
-            $('.img_file1').find(".upload").css('opacity','0')
-            $(".img_file1").find(".upload").eq(img_index).css('opacity','1');
+            $('.imgfile1').find(".upload").css('opacity','0')
+            $(".imgfile1").find(".upload").eq(img_index).css('opacity','1');
         }
 		// console.log(img_index,'ty')
     })
@@ -580,6 +622,16 @@
         }
 
     }
+      $('.bd').children('ul').on('DOMNodeInserted',function(){
+        console.log('sf')
+          jQuery(".TB-focus").slide({ mainCell:".bd ul",effect:"fold",autoPlay:true,delayTime:200 });  
+    })
+
+    $(function (){  
+      
+    jQuery(".TB-focus").slide({ mainCell:".bd ul",effect:"fold",autoPlay:true,delayTime:200 });  
+      
+});
 </script>
 </body>
 </html>
